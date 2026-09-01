@@ -1,0 +1,106 @@
+---
+title: "Blood Pressure OCR"
+excerpt: "Developed a seven-segment OCR system for blood pressure monitors to help elderly users easily record and manage their health information."
+collection: portfolio
+type: project
+info: 
+year: 2022
+thumbnails: /images/OCR/teaser.jpg
+---
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img id="teaser" src="/images/OCR/result1.jpg" alt="Teaser Image" style="width:20%; height:auto;">
+      <img id="teaser" src="/images/OCR/result2.jpg" alt="Teaser Image" style="width:20%; height:auto;">
+      <img id="teaser" src="/images/OCR/result3.jpg" alt="Teaser Image" style="width:20%; height:auto;">
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section">
+  <div class="container is-max-desktop">    
+    <div class="columns">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">About This Work</h2>
+        <p>
+          This project aimed to improve accessibility in home healthcare by developing an 
+          OCR system for blood pressure monitors that recognizes seven-segment digits 
+          and automatically records systolic, diastolic, and pulse readings.  
+          The system was designed to help elderly users easily track their health data through a mobile interface.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Methodology</h2>
+    <p>
+      To support diverse blood pressure monitor designs, a custom dataset was built 
+      by synthesizing digit images (0–9) and combining them into realistic display samples.  
+      A YOLOX-based detection model was trained for seven-segment recognition and exported 
+      to ONNX format for lightweight deployment. The model was integrated into an 
+      Android app using JNI for real-time inference, automatically distinguishing between 
+      systolic, diastolic, and pulse values.
+    </p>
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+      <img src="/images/OCR/data1.jpeg" style="width:20%; height:auto;" alt="OCR Result 1">
+      <img src="/images/OCR/data2.jpeg" style="width:20%; height:auto;" alt="OCR Result 2">
+      <img src="/images/OCR/data3.jpeg" style="width:20%; height:auto;" alt="OCR Result 2">
+      <img src="/images/OCR/data4.jpeg" style="width:20%; height:auto;" alt="OCR Result 2">
+    </div>
+
+    <p>
+      Major challenges included data scarcity, light reflections, shadows, and variations across different monitor displays.
+      Through iterative fine-tuning and data synthesis, the system achieved robust performance suitable for home healthcare and digital therapeutics.
+    </p>
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+      <img src="/images/OCR/sample1.jpeg" style="width:20%; height:auto;" alt="OCR Result 1">
+      <img src="/images/OCR/sample2.jpeg" style="width:20%; height:auto;" alt="OCR Result 2">
+      <img src="/images/OCR/sample3.jpeg" style="width:20%; height:auto;" alt="OCR Result 2">
+      <img src="/images/OCR/sample4.jpeg" style="width:20%; height:auto;" alt="OCR Result 2">
+    </div>
+
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="section">
+  <div class="container is-max-desktop">    
+    <h2 class="title is-3 has-text-centered">Results</h2>
+    <p>
+      The implemented system achieved high detection accuracy (95%) across multiple monitor types 
+      and lighting environments. The Android prototype successfully extracted and displayed readings 
+      in real time, allowing seamless data transfer to healthcare management applications.  
+      This system has since been integrated into several partner hospital apps in Korea, 
+      where it contributes to improving accessibility and independence among elderly users.
+    </p>
+
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+      <img src="/images/OCR/infer1.jpg" style="width:20%; height:auto;" alt="OCR Result 1">
+      <img src="/images/OCR/infer2.jpg" style="width:20%; height:auto;" alt="OCR Result 2">
+    </div>
+
+    <p>
+      The system infers each digit individually and reconstructs the complete reading, allowing stable recognition despite variations in digit spacing and layout across different monitors.
+    </p>
+
+
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+      <img src="/images/OCR/result1.jpg" style="width:18%; height:auto;" alt="OCR Result 1">
+      <img src="/images/OCR/result2.jpg" style="width:18%; height:auto;" alt="OCR Result 2">
+      <img src="/images/OCR/result3.jpg" style="width:18%; height:auto;" alt="OCR Result 2">
+      <img src="/images/OCR/result5.jpg" style="width:18%; height:auto;" alt="OCR Result 2">
+    </div>
+
+  </div>
+</section>
+
+
+</body>
+</html>

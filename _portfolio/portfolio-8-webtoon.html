@@ -1,0 +1,80 @@
+---
+title: "Webtoon AI Project"
+excerpt: "Webtoon classification and generation using CNN and GAN models."
+collection: portfolio
+type: project
+info: 
+year: 2021
+thumbnails: /images/Webtoon/teaser.png
+---
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img id="teaser" src="/images/Webtoon/teaser.png" alt="Teaser Image" style="width:60%; height:auto;">
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT THIS WORK -->
+<section class="section">
+  <div class="container is-max-desktop">    
+    <div class="columns">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">About This Work</h2>
+        <p>       
+          This project focuses on AI-based recognition and generation of Webtoon art styles.  
+          Using six Webtoons with distinct drawing styles, the models were trained to classify artistic patterns
+          andgenerate new images that reflect each style’s unique visual characteristics.
+        </p>        
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Methodology</h2>
+
+    <h3 class="title is-4">1. Data Preprocessing</h3>
+    <p>
+      Crawled Webtoon images were preprocessed using OpenCV to extract individual comic cuts. 
+      Techniques such as Canny Edge Detection, Morphological Transformations, and Hough Line Detection 
+      were applied to remove white backgrounds and isolate valid panels for training.
+    </p>
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: nowrap;">
+        <img src="/images/Webtoon/preprocess1.png" style="width: 40%; height: auto;">
+        <img src="/images/Webtoon/preprocess2.png" style="width: 40%; height: auto;">
+    </div>
+
+    <h3 class="title is-4">Classification</h3>
+    <p>
+      Implemented an image encoder and classification model to classify six distinct Webtoon styles. 
+      The model achieved 96.9% training accuracy and 95.9% test accuracy, 
+      demonstrating high performance in distinguishing drawing styles across titles.
+    </p>
+
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: nowrap;">
+        <img src="/images/Webtoon/classification.png" style="width: 80%; height: auto;">
+    </div>
+
+    <h3 class="title is-4">Generation</h3>
+    <p>
+      Built a custom Webtoon face dataset through manual labeling and YOLOv5 detection. 
+      Trained DCGAN and StyleGAN2-ADA to generate Webtoon-style character faces. 
+      StyleGAN2-ADA, fine-tuned on 900 images, successfully generated realistic Webtoon faces using 
+      adaptive data augmentation.
+    </p>
+
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: nowrap;">
+        <img src="/images/Webtoon/detect.jpg" style="width: 20%; height: auto;">
+        <img src="/images/Webtoon/gan.png" style="width: 70%; height: auto;">
+    </div>
+
+  </div>
+</section>
+
+
+</body>
+</html>

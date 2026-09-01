@@ -1,0 +1,175 @@
+---
+title: "UAV Design & Development"
+excerpt: "Unmanned Aerial Vehicle (UAV) design and build for rapid supply delivery in disaster zones."
+collection: portfolio
+type: capstone 
+info: "Undergraduate Capstone"
+year: 2015
+thumbnails: /images/UAV/teaser.png
+---
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img id="teaser" src="/images/UAV/teaser.png" alt="Teaser Image" style="width:60%; height:auto;">
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT THIS WORK -->
+<section class="section">
+  <div class="container is-max-desktop">    
+    <div class="columns">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">About This Work</h2>
+        <p>
+          This project focused on the conceptual design and partial build of an 
+          Unmanned Aerial Vehicle (UAV) system for rapid supply delivery in disaster zones. 
+          The proposed UAV is designed to be rocket-launched, glide autonomously 
+          to remote locations, and deploy a parachute to safely deliver essential supplies such as food, water, 
+          and medical kits. Our team, composed of 9 members, carried out this capstone project, and I contributed 
+          specifically to the stability & control analysis, propulsion system design, 3D modeling with CATIA, 
+          as well as numerical analysis and code implementation. 
+          Building upon the design, we made a simple prototype using lightweight materials and an Arduino-based kit and conducted preliminary flight tests.
+        </p>        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- DESIGN & IMPLEMENTATION -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Design & Implementation</h2>
+        <p>
+          The UAV design combined multiple engineering domains, from specifications and structural analysis
+          to propulsion, stability, and control systems.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- AIRCRAFT SPECIFICATION -->
+  <div class="container is-max-desktop">
+    <h3 class="title is-4 has-text-centered">Aircraft Specification</h3>
+    <div class="columns is-vcentered">
+      <div class="column is-half">
+        <p>
+          The UAV was designed to meet mission requirements with the following specifications:
+        </p>
+        <table class="table is-bordered is-narrow">
+          <tr><th>Payload</th><td>23.3 kg (food, water, medical kits)</td></tr>
+          <tr><th>Range</th><td>35 km</td></tr>
+          <tr><th>Max Altitude</th><td>2.7 km</td></tr>
+          <tr><th>Total Weight</th><td>50 kg (with propellant)</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- AIRFRAME & STRUCTURE ANALYSIS -->
+  <div class="container is-max-desktop">
+    <h3 class="title is-4 has-text-centered">Structure Analysis</h3>
+    <div class="columns is-vcentered">
+      <div class="column is-half">
+        <p>
+          We designed a 3D model using CATIA and performed structural stress and deformation analysis 
+          using FEA tools to ensure it could withstand launch and glide loads. 
+          The analysis validated the selected material thickness and safety factor for each major component.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: nowrap; margin-top: 10px;">
+          <img src="/images/UAV/wing_design.png" style="width: 45%; height: auto;" alt="Structure Analysis">
+          <img src="/images/UAV/stress_distribution.png" style="width: 45%; height: auto;" alt="Stress Distribution">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROPULSION -->
+  <div class="container is-max-desktop">
+    <h3 class="title is-4 has-text-centered">Propulsion</h3>
+    <div class="columns is-vcentered">
+      <div class="column is-half">
+        <p>
+          The UAV used a solid-propellant rocket booster to achieve launch altitude. Grain design and nozzle 
+          optimization were carried out to meet thrust requirements.
+        </p>
+        <ul>
+          <li>Thrust: 773 N × 3 boosters</li>
+          <li>Burn time: 20 sec</li>
+          <li>Max altitude: 2,760 m</li>
+        </ul>
+      </div>
+      <div class="column is-half">
+        <p style="margin-top:10px;">
+          A rocket separation mechanism was designed to deploy wings and transition to glide flight after booster burnout.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STABILITY & CONTROL -->
+  <div class="container is-max-desktop">
+    <h3 class="title is-4 has-text-centered">Stability & Control</h3>
+    <div class="columns is-vcentered">
+      <div class="column is-half">
+        <p>
+          We analyzed longitudinal, lateral, and directional stability using DATCOM. 
+          <br> A PID-based control system was implemented to maintain stable flight during glide descent.
+        </p>
+        <h4 class="title is-5 has-text-centered">Longitudinal Stability</h4>
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: nowrap; margin-top: 10px;">
+          <img src="/images/UAV/long_short.png" style="width: 44%; height: auto;" alt="Short Period Mode">
+          <img src="/images/UAV/long_long.png" style="width: 44%; height: auto;" alt="Long Period Mode">
+        </div>
+        <h4 class="title is-5 has-text-centered">Lateral and Directional Stability</h4>
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: nowrap; margin-top: 10px;">
+          <img src="/images/UAV/lat_roll.png" style="width: 30%; height: auto;" alt="Roll Mode">
+          <img src="/images/UAV/lat_spiral.png" style="width: 30%; height: auto;" alt="Spiral Mode">
+          <img src="/images/UAV/lat_dutch.png" style="width: 30%; height: auto;" alt="Dutch Roll Mode">
+        </div>
+        <h4 class="title is-5 has-text-centered">Dynamic Stability Response</h4>
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: nowrap; margin-top: 10px;">
+          <img src="/images/UAV/dynamic_long.png" style="width: 45%; height: auto;" alt="Longitudinal Motion Response">
+          <img src="/images/UAV/dynamic_lat.png" style="width: 45%; height: auto;" alt="Lateral-Directional Motion Response">
+        </div>
+        <p>
+          Dynamic response simulations showing that the UAV's longitudinal (left) and lateral-directional (right) 
+          motions converge stably under the designed PID control system.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROTOTYPE & TESTING -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Prototype & Testing</h2>
+        <p>
+          Following the conceptual design and system analysis above, Our team fabricated a lightweight prototype 
+          incorporating an embedded control system and conducted preliminary flight tests to evaluate 
+          the overall airframe configuration and control algorithms.
+        </p>
+        <ul>
+          <li>Constructed a functional prototype based on the finalized UAV design</li>
+          <li>Implemented an Arduino-based embedded control system to evaluate flight stability and control algorithms</li>
+          <li>Conducted multiple preliminary flight tests to validate aerodynamic and control behavior</li>
+        </ul>
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: nowrap; margin-top: 10px;">
+          <img src="/images/UAV/sketch.png" style="width: 45%; height: auto;" alt="Sketch">
+          <img src="/images/UAV/prototype.png" style="width: 45%; height: auto;" alt="Prototype">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

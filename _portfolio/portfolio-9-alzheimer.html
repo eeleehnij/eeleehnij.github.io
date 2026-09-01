@@ -1,0 +1,62 @@
+---
+title: "Alzheimer's disease"
+excerpt: "Drug discovery for Alzheimer's disease using SMILES codes, molecular fingerprints and machine learning methods."
+collection: portfolio
+type: research
+info: 
+year: 2020
+thumbnails: /images/Alzheimer/teaser.png
+---
+
+
+
+<!-- ABOUT THIS WORK -->
+<section class="section">
+  <div class="container is-max-desktop">    
+    <div class="columns">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">About This Work</h2>
+        <p>
+          This research focused on searching for new drug candidates to treat Alzheimer's Disease using machine learning methods.
+          I collected bio-chemical data from PubChem and curate them to use for computational work.
+          These curated datasets were used to train machine learning models to predict active compounds for potential therapy in Alzheimer's Disease.
+        </p>        
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN & IMPLEMENTATION -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Methodology</h2>
+
+    <h3 class="title is-4">1. Data Collection</h3>
+    <p>
+      Using gene IDs associated with Alzheimer's disease, I collected compound datasets from PubChem,
+      including SMILES codes, CID, activity labels, binding affinity (IC50), and additional metadata.
+    </p>
+    C<sub>15</sub>H<sub>21</sub>N<sub>3</sub>O<sub>2</sub><br>
+    SMILES: C[C@@]12CCN([C@@H]1N(C3=C2C=C(C=C3)OC(=O)NC)C)C
+    <div style="margin-top: 10px;">
+    <img src="/images/Alzheimer/teaser.png" style="width: 30%; height: auto;">
+    
+    </div>
+
+    <h3 class="title is-4">2. Data Curation and Feature Extraction</h3>
+    <p>
+      SMILES representations were processed using RDKit and converted into molecular fingerprints.
+      Each molecule was encoded as a binary vector representing its chemical features.
+    </p>
+
+    <h3 class="title is-4">3. ML-based Activity Prediction</h3>
+    <p>
+      Binary classification models (SVM, Logistic Regression, and Neural Networks) were trained on fingerprint features to predict whether each compound is Active or Inactive for a given gene target.
+      The result was evaluated using Jaccard Similarity, Accuracy, Precision, and Recall.
+    </p>
+
+  </div>
+</section>  
+
+</body>
+</html>

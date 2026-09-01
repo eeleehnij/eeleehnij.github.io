@@ -1,0 +1,145 @@
+---
+title: "Personalcolor Analysis"
+excerpt: "Personal color analysis from facial images with Deep learning-based classification and beauty product recommendations."
+collection: portfolio
+type: project
+info: 
+year: 2024
+thumbnails: /images/Personalcolor/teaser.png
+---
+
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body" style="display: flex; justify-content: center; align-items: center; gap: 40px;">
+      <img src="/images/Personalcolor/teaser.png" alt="Teaser Image" style="width: 30%; height: auto;">
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 10px; width: 40%;">
+      <img src="/images/Personalcolor/spring_image.png" alt="Spring" style="width: 100%; height: auto;">
+      <img src="/images/Personalcolor/summer_image.png" alt="Summer" style="width: 100%; height: auto;">
+      <img src="/images/Personalcolor/fall_image.png" alt="Fall" style="width: 100%; height: auto;">
+      <img src="/images/Personalcolor/winter_image.png" alt="Winter" style="width: 100%; height: auto;">
+    </div>
+</div>
+  </div>
+</section>
+
+<!-- ABOUT THIS WORK -->
+<section class="section">
+  <div class="container is-max-desktop">    
+    <div class="columns">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">About This Work</h2>
+        <p>
+          This project aimed to develop deep learning-based Personal Color Analysis models.
+          I mentored a team of 3 undergraduate student interns throughout the entire process, guiding them to successfully complete the project. 
+          Personal color refers to an individual's most suitable color palette based on skin tone, hair, eye color, and other features, often used in fashion and beauty domains.
+          Our system was designed to classify personal color type into 8 classes: <br>
+          Spring (Light/Bright), Summer (Light/Mute), Fall (Mute/Dark), Winter (Bright/Deep).<br>
+          The project covered data collection and annotation, model training and validation, as well as personalized cosmetic recommendation based on the predicted color type.
+          We also developed a demo app using Android Studio, integrating the model to provide real-time inference from facial images.       
+        </p>        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- DESIGN & IMPLEMENTATION -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Methodology</h2>
+        <p>
+          <h3 class="title is-4">1. Data Collection & Annotation</h3>
+          <p>
+          We collected a curated dataset of facial images labeled with personal color types. 
+          Our dataset included diverse skin tones and lighting conditions, sourced from voth general photo collection and public dataset (FFHQ).
+          Manual annotation was performed by referencing professional color consulting materials and validating the labels with personal color experts to ensure label accuracy and consistency.
+          </p>
+
+          <h3 class="title is-4">2. Model Training</h3>
+          <p>
+          We trained CNN models (ResNet, EfficientNet) to classify personal color into 8 categories. 
+          We applied data augmentation excepting color augmentation to preserve color features.
+          Our model achieved 88.8% accuracy in Warm/Cool tone classification, 81.6% accuracy in Seasonal type (Spring, Summer, Fall, Winter), and 70.93% overall accuracy across 8 subtone categories.
+          </p>
+
+          <h3 class="title is-4">3. Android App Development</h3>
+          <p>
+          We developed an Android demo app using Android Studio.
+          Users could upload or capture a face image and receive their personal color type in real-time.
+          Based on the predicted result, the app also recommend cosmetic products that match the user's most suitable color palette and the worst color palette.   
+          </p>
+
+          <!-- 앱 디자인 제목 -->
+          <div style="margin-top: 5px; font-weight: bold;">App Design</div>
+          <div style="text-align: center; margin-bottom: 30px;">
+            <img src="/images/Personalcolor/app.jpg" alt="App Screenshot" style="width: 85%; height: auto;">
+          </div>
+
+          <!-- 팔레트 + 추천 전체 감싸는 flex -->
+          <div style="display: flex; justify-content: center; align-items: flex-start; gap: 40px;">
+
+            <!-- 좌측: 팔레트 그리드 + 제목 포함 -->
+            <div style="flex: 1;">
+              <div style="margin-bottom: 10px; font-weight: bold;">Color Palette</div>
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px;">
+                <!-- 각 셀 -->
+                <div style="text-align: center;">
+                  <img src="/images/Personalcolor/springlight_color.png" style="width: 100%; height: 150px; object-fit: contain;">
+                  <div style="margin-top: 5px; width: 120px; margin: 0 auto; white-space: nowrap;">Spring Light</div>
+                </div>
+                <div style="text-align: center;">
+                  <img src="/images/Personalcolor/springbright_color.png" style="width: 100%; height: 150px; object-fit: contain;">
+                  <div style="margin-top: 5px; width: 120px; margin: 0 auto; white-space: nowrap;">Spring Bright</div>
+                </div>
+                <div style="text-align: center;">
+                  <img src="/images/Personalcolor/fallmute_color.png" style="width: 100%; height: 150px; object-fit: contain;">
+                  <div style="margin-top: 5px; width: 120px; margin: 0 auto; white-space: nowrap;">Fall Mute</div>
+                </div>
+                <div style="text-align: center;">
+                  <img src="/images/Personalcolor/falldeep_color.png" style="width: 100%; height: 150px; object-fit: contain;">
+                  <div style="margin-top: 5px; width: 120px; margin: 0 auto; white-space: nowrap;">Fall Deep</div>
+                </div>
+
+                <div style="text-align: center;">
+                  <img src="/images/Personalcolor/summerlight_color.png" style="width: 100%; height: 150px; object-fit: contain;">
+                  <div style="margin-top: 5px; width: 120px; margin: 0 auto; white-space: nowrap;">Summer Light</div>
+                </div>
+                <div style="text-align: center;">
+                  <img src="/images/Personalcolor/summermute_color.png" style="width: 100%; height: 150px; object-fit: contain;">
+                  <div style="margin-top: 5px; width: 120px; margin: 0 auto; white-space: nowrap;">Summer Mute</div>
+                </div>
+                <div style="text-align: center;">
+                  <img src="/images/Personalcolor/winterdeep_color.png" style="width: 100%; height: 150px; object-fit: contain;">
+                  <div style="margin-top: 5px; width: 120px; margin: 0 auto; white-space: nowrap;">Winter Deep</div>
+                </div>
+                <div style="text-align: center;">
+                  <img src="/images/Personalcolor/winterbright_color.png" style="width: 100%; height: 150px; object-fit: contain;">
+                  <div style="margin-top: 5px; width: 120px; margin: 0 auto; white-space: nowrap;">Winter Bright</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 우측: 추천 이미지 + 제목 포함 -->
+            <div style="flex: 0 0 25%;">
+              <div style="margin-bottom: 10px; font-weight: bold;">Recommendation</div>
+              <img src="/images/Personalcolor/recommendation.jpg" style="width: 100%; height: 330px; object-fit: contain;">
+            </div>
+
+          </div>
+
+
+        </p>
+        </p> 
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>

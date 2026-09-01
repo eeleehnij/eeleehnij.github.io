@@ -1,0 +1,112 @@
+---
+title: "Absolute Depth Estimation in MVD Surgery"
+excerpt: "Intraoperative Absolute Depth Estimation in MVD Surgery"
+collection: portfolio
+type: research
+info: "IEEE CBMS"
+year: 2025
+thumbnails: /images/AbsoluteDepthMVD/teaser1.png
+---
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img id="teaser" src="/images/AbsoluteDepthMVD/teaser2.png" alt="Teaser Image" style="width:50%; height:auto;">
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">    
+    <!-- About This Work. -->
+    <div class="columns">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">About This Work</h2>
+        <p>
+          This work focuses on improving surgical guidance during microvascular decompression (MVD), a neurosurgical procedure that alleviates nerve compression by separating the offending blood vessel. 
+          One of the key challenges in MVD is identifying compression points along the depth axis, which are harder to detect than those in the horizontal plane.
+          To address this, we developed a method that estimates accurate intraoperative distances using the Depth-Anything-V2 model, combined with the optical properties of standard surgical imaging. 
+          Unlike traditional approaches that rely on relative depth, our system provides absolute distance measurements with an error margin under 2 mm, validated against both intraoperative and preoperative references.
+        </p>        
+      </div>
+    </div>
+    <!--/ About This Work. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3 has-text-centered">Pipeline Overview</h2>
+          <p style="margin-bottom: 30px;">
+            Our pipeline estimates absolute intraoperative distances from monocular surgical video in microvascular decompression (MVD) procedures.
+            We leveraged a pretrained monocular depth estimation model (Depth-Anything-V2), and converted the resulting relative depth maps into metric-scale distance values using microscope-specific calibration parameters.
+            To determine meaningful points, we extract the centroids of key anatomical structures segmented by SAM2, and compute distances at those locations.  
+          </p>
+          <p style="margin-bottom: 30px;">
+          <img src="/images/AbsoluteDepthMVD/Figure2.png" style="max-width:100%; height:auto; display:block; margin-top: 20px; margin:0 auto;">
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container is-max-desktop">    
+        <div class="columns is-centered">          
+          <div class="columns">
+            <div class="content">
+              <h2 class="title is-3 has-text-centered">Method</h2>
+              <p style="margin-bottom: 30px;">
+                We validated the geometric consistency of our estimated depth maps by aligning them with both preoperative 3D reconstructions from 3D Slicer and intraoperative surgical images.
+              </p>
+              <p style="margin-bottom: 30px;">
+              <img src="/images/AbsoluteDepthMVD/Figure5.png" style="max-width:100%; height:auto; display:block; margin-top: 20px; margin:0 auto;">
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section">
+      <div class="container is-max-desktop">    
+        <div class="columns is-centered">          
+          <div class="columns">
+            <div class="content">
+              <h2 class="title is-3 has-text-centered">Results</h2>
+              <p style="margin-bottom: 30px;">
+                We estimated absolute distances between key anatomical structures using our depth model and compared them against intraoperative microscope measurements and preoperative 3D Slicer reconstructions.
+                The predicted distances showed strong agreement with both references, with an average error of approximately 2 mm across cases.
+              </p>
+              <p style="margin-bottom: 30px;">
+              <img src="/images/AbsoluteDepthMVD/results.png" style="max-width:100%; height:auto; display:block; margin-top: 20px; margin:0 auto;">
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{lee2025intraoperative,
+      title={Intraoperative Absolute Depth Estimation in MVD Surgery},
+      author={Lee, Jinhee and Lee, Hwanhee and Park, Jay J and Htun, Ethan and Xu, Bruce Changlong and Cho, Sang Hoon and Lee, Sanghoon and Buch, Vivek P},
+      booktitle={2025 IEEE 38th International Symposium on Computer-Based Medical Systems (CBMS)},
+      pages={341--342},
+      year={2025},
+      organization={IEEE}}
+    </code></pre>
+  </div>
+</section>
+

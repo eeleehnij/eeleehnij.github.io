@@ -1,0 +1,169 @@
+---
+title: "Arachnoid Membrane Segmentation in MVD Surgery"
+excerpt: "Segmentation of the arachnoid membrane in intraoperative microscopic MVD scenes"
+collection: portfolio
+type: research
+info: "MICCAI Workshop"
+year: 2025
+thumbnails:
+  - /images/AMSegmentation/Figure 2a.png
+  - /images/AMSegmentation/Figure 2b.png
+---
+
+
+<video autoplay loop muted playsinline style="max-width:80%; display:block; margin:0 auto;">
+  <source src="{{ '/images/AMSegmentation/result.mp4' | relative_url }}" type="video/mp4">
+</video>
+
+
+<section class="section">
+  <div class="container is-max-desktop">    
+    <!-- About This Work. -->
+    <div class="columns">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">About This Work</h2>
+        <p>
+          This project introduces the first dedicated study on segmenting the arachnoid membrane (AM) from microvascular decompression (MVD) surgery videos.
+          The AM is a thin, transparent meningeal layer that obscures key neurovascular structures and is challenging to identify due to low contrast and anatomical variability. 
+          We built a high-quality, expert-annotated dataset focused on the cerebellopontine angle and trained a segmentation model using a task-specific loss function tailored for AM recognition. 
+          Our method improved IoU by 7.35% over the baseline, enabling more reliable AM identification during surgery and laying the groundwork for AI-assisted intraoperative support.
+        </p>        
+      </div>
+    </div>
+    <!--/ About This Work. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-12">
+        <div class="content">
+          <h2 class="title is-3 has-text-centered">Motivation</h2>
+          <p style="margin-bottom: 30px;">
+            The AM is a thin, transparent layer that is difficult to detect during surgery and not visible in preoperative MRI scans.
+            Proper AM dissection is critical for exposing key neurovascular structures, but its poor visibility and delicate handling make the task highly challenging.
+            This motivates the use of AI-based segmentation to support safer and more precise dissection during MVD procedures.
+          </p>
+
+          <!-- FLEXBOX BASED IMAGE LAYOUT -->
+          <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: nowrap;">
+            <img src="/images/AMSegmentation/Figure 1a.png" style="width: 22%; height: auto;">
+            <img src="/images/AMSegmentation/Figure 1b.png" style="width: 22%; height: auto;">
+            <img src="/images/AMSegmentation/Figure 2a.png" style="width: 22%; height: auto;">
+            <img src="/images/AMSegmentation/Figure 2b.png" style="width: 22%; height: auto;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container is-max-desktop">    
+        <div class="columns is-centered">          
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-3 has-text-centered">Method</h2>
+
+              <!-- Dataset -->
+              <h3 class="title is-4">Dataset</h3>
+              <p style="margin-bottom: 20px;">
+                We constructed a manually annotated dataset using high-resolution surgical microscopes.
+                A total of 554 representative frames were annotated across 10 anatomical classes, including cranial nerves, vessels, tissues, and surgical instruments. 
+                To better capture AM behavior, we also defined interaction-specific labels such as CN-AM, vessel-AM, and tissue-AM.
+              </p>
+
+              <!-- Architecture -->
+              <h3 class="title is-4">Baseline Architecture</h3>
+              <p style="margin-bottom: 20px;">
+                We adopt Mask2Former as our segmentation backbone, leveraging its hierarchical pixel and transformer decoders to predict masks and class labels. 
+                We use the Swin Transformer as the visual encoder due to its strong performance on dense prediction tasks.
+              </p>
+              <img src="/images/AMSegmentation/Figure 3.png" style="max-width:100%; height:auto; display:block; margin: 0 auto 30px auto;">
+
+              <!-- Loss -->
+              <h3 class="title is-4">Query-wise AM Loss</h3>
+              <p style="margin-bottom: 20px;">
+                To enhance AM segmentation, we propose a query-wise AM supervision loss. 
+                It encourages one or more mask queries to specialize in AM regions by supervising only the top-K predicted masks with the highest similarity to the ground truth. 
+                This loss is combined with standard Mask2Former loss terms (classification, BCE, and Dice loss) for joint optimization.
+              </p>
+
+              <!-- Main loss equation -->
+              <p style="text-align: center; margin-bottom: 30px;">
+                <img src="/images/AMSegmentation/am eq1.png" style="max-width: 80%; height: auto;">
+              </p>
+
+              <p style="text-align: center; margin-bottom: 30px;">
+                <img src="/images/AMSegmentation/am eq2.png" style="max-width: 50%; height: auto;">
+              </p>
+
+              <p style="text-align: center; margin-bottom: 30px;">
+                <img src="/images/AMSegmentation/am eq3.png" style="max-width: 50%; height: auto;">
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">    
+        <div class="columns is-centered">          
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-3 has-text-centered">Results</h2>
+
+              <!-- 정량적 성능 요약 -->
+              <p style="margin-bottom: 20px;">
+                We evaluated our model on the AM-MVD dataset using class-wise Intersection over Union (cIoU) and mean IoU (mIoU).  
+                Compared to the baseline Mask2Former, our method with AM Loss improved segmentation performance for AM regions from 21.09 to 28.44 IoU.  
+                Overall mean IoU also increased from 33.65 to 34.40, demonstrating better sensitivity to the translucent AM class, with minimal trade-offs for other anatomical labels.
+              </p>
+
+              <!-- 정량 결과 테이블 이미지 -->
+              <p style="margin-bottom: 30px;">
+                <img src="/images/AMSegmentation/Result.png" style="max-width:100%; height:auto; display:block; margin: 0 auto;">
+              </p>
+
+              <!-- 정성적 비교 설명 -->
+              <p style="margin-bottom: 20px;">
+                Our method more precisely segments subtle AM regions and densely packed surgical scenes where cranial nerves, vessels, and instruments overlap.  
+                These results highlight the model’s robustness and effectiveness under real-world intraoperative conditions.
+              </p>
+
+              <!-- 정성 결과 이미지 -->
+              <p style="margin-bottom: 30px;">
+                <img src="/images/AMSegmentation/Figure 4.png" style="max-width:100%; height:auto; display:block; margin: 0 auto;">
+              </p>
+
+              <!-- 색상 범례를 텍스트로 요약 -->
+              <p class="is-size-7 has-text-centered">
+                Color legend — background (black), CN (sky blue), vessels (orange), surgical instruments (dark red), surgical materials (light green), AM (pink), tissue (blue), CN-AM (blue-green), vessel-AM (gold), tissue-AM (green)
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{,
+      title={},
+      author={},
+      booktitle={},
+      pages={},
+      year={},
+      organization={}}
+    </code></pre>
+  </div>
+</section>
+
