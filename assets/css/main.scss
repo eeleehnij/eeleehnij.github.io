@@ -430,6 +430,12 @@ th {
   text-decoration-color: var(--rule-strong);
 }
 
+/* 좁은 화면에서는 구분점을 숨긴다 — 줄바꿈 시 점이 줄 맨 앞에 떨어지는 것 방지 */
+@media (max-width: 34rem) {
+  .intro__links { gap: 0.35rem 1rem; }
+  .intro__links li + li::before { display: none; }
+}
+
 @media (max-width: 40rem) {
   .intro {
     grid-template-columns: 1fr;
@@ -443,105 +449,7 @@ th {
 }
 
 /* --------------------------------------------------------------------------
-   7. 이력 항목 (Education / Experience)
-   -------------------------------------------------------------------------- */
-
-.entry {
-  display: flex;
-  gap: 1.1rem;
-  padding-bottom: 1.6rem;
-  margin-bottom: 1.6rem;
-  border-bottom: 1px solid var(--rule);
-}
-
-.entry:last-child {
-  border-bottom: 0;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.entry__logo {
-  flex: 0 0 2.4rem;
-  width: 2.4rem;
-  object-fit: contain;
-  align-self: flex-start;
-  margin-top: 0.3rem;
-}
-
-.entry__body {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
-.entry__head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.5rem 1.25rem;
-}
-
-.entry__org {
-  font-family: var(--font-serif);
-  font-size: 1.12rem;
-  font-weight: 500;
-  line-height: 1.3;
-}
-
-.entry__date {
-  font-size: 0.82rem;
-  color: var(--fg-faint);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-  text-align: right;
-  flex: 0 0 auto;
-}
-
-.entry__role {
-  font-size: 0.925rem;
-  color: var(--fg-muted);
-  font-style: italic;
-  margin: 0.1rem 0 0;
-}
-
-.entry__detail {
-  font-size: 0.925rem;
-  color: var(--fg-muted);
-  margin: 0.5rem 0 0;
-  padding-left: 0;
-  list-style: none;
-}
-
-.entry__detail li {
-  position: relative;
-  padding-left: 1.25rem;
-  margin-bottom: 0.22rem;
-}
-
-.entry__detail li::before {
-  content: "\2013";
-  position: absolute;
-  left: 0;
-  color: var(--fg-faint);
-}
-
-.entry__note {
-  display: block;
-  font-size: 0.82rem;
-  color: var(--fg-faint);
-  margin-top: 0.15rem;
-}
-
-@media (max-width: 34rem) {
-  .entry__logo { display: none; }
-  .entry__head {
-    flex-direction: column;
-    gap: 0.15rem;
-  }
-  .entry__date { text-align: left; }
-}
-
-/* --------------------------------------------------------------------------
-   8. 논문 / 프로젝트 공통 행(row) 리스트
+   7. 논문 / 프로젝트 공통 행(row) 리스트
    카드·그림자·둥근모서리 없음. 썸네일 + 텍스트 2단.
    -------------------------------------------------------------------------- */
 
@@ -553,9 +461,9 @@ th {
 
 .item {
   display: grid;
-  grid-template-columns: 13rem 1fr;
+  grid-template-columns: 16rem 1fr;
   gap: 1.75rem;
-  align-items: start;
+  align-items: stretch;
   padding-bottom: 2.25rem;
   margin-bottom: 2.25rem;
   border-bottom: 1px solid var(--rule);
@@ -569,15 +477,19 @@ th {
 
 .item__media {
   display: block;
-  position: relative;
+  position: relative;      /* 자식을 absolute 로 띄워 고유 높이를 없앤다 */
   overflow: hidden;
   border-radius: 2px;
   background: var(--bg-subtle);
-  aspect-ratio: 16 / 10;
+  min-height: 6.5rem;      /* 글이 아주 짧은 항목의 하한 */
 }
 
-.item__media img,
-.item__media video {
+/* 미디어는 행 높이(= 글 높이)를 그대로 채운다 */
+.item__media > img,
+.item__media > video,
+.item__media__duo {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -585,21 +497,25 @@ th {
   transition: transform 0.35s ease;
 }
 
-a.item__media:hover img,
-a.item__media:hover video {
-  transform: scale(1.03);
-}
-
 /* 썸네일 2장 나란히 */
-.item__media--duo {
+.item__media__duo {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2px;
+  object-fit: unset;
 }
 
-.item__media--duo img {
+.item__media__duo img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+a.item__media:hover > img,
+a.item__media:hover > video,
+a.item__media:hover .item__media__duo {
+  transform: scale(1.03);
 }
 
 .item__title {
@@ -716,7 +632,7 @@ a.item__media:hover video {
 }
 
 /* --------------------------------------------------------------------------
-   9. 일반 페이지 / 프로젝트 상세
+   8. 일반 페이지 / 프로젝트 상세
    -------------------------------------------------------------------------- */
 
 .page-head {
@@ -778,7 +694,7 @@ a.item__media:hover video {
 }
 
 /* --------------------------------------------------------------------------
-   10. 프로젝트 상세 페이지 호환 레이어
+   9. 프로젝트 상세 페이지 호환 레이어
    기존 _portfolio/*.html 이 Bulma 클래스 마크업으로 작성돼 있어
    (Bulma 는 로드되지 않음) 실제로 쓰이는 클래스만 이 디자인 언어로 구현한다.
    -------------------------------------------------------------------------- */
@@ -872,7 +788,7 @@ a.item__media:hover video {
 }
 
 /* --------------------------------------------------------------------------
-   11. 푸터
+   10. 푸터
    -------------------------------------------------------------------------- */
 
 .site-footer {
@@ -901,7 +817,7 @@ a.item__media:hover video {
 .site-footer a:hover { color: var(--accent-hover); }
 
 /* --------------------------------------------------------------------------
-   12. 인쇄
+   11. 인쇄
    -------------------------------------------------------------------------- */
 
 @media print {

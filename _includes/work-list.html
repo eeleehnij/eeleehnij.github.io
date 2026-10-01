@@ -6,10 +6,12 @@
     <article class="item">
 
       {% if post.thumbnails.size > 1 and post.thumbnails.first %}
-        <a class="item__media item__media--duo" href="{{ url }}">
-          {% for img in post.thumbnails limit:2 %}
-            <img src="{{ img | relative_url }}" alt="" loading="lazy">
-          {% endfor %}
+        <a class="item__media" href="{{ url }}">
+          <span class="item__media__duo">
+            {% for img in post.thumbnails limit:2 %}
+              <img src="{{ img | relative_url }}" alt="" loading="lazy">
+            {% endfor %}
+          </span>
         </a>
       {% else %}
         {% if post.thumbnails.first %}{% assign thumb = post.thumbnails.first %}{% else %}{% assign thumb = post.thumbnails %}{% endif %}
