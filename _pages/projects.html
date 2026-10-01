@@ -1,46 +1,18 @@
 ---
-title: "Projects"
-subtitle: "Research, industry, and capstone work."
 permalink: /projects/
+redirect_to: /
+sitemap: false
+layout: null
 ---
-
-<div class="row-list">
-  {% assign items = site.portfolio | sort: "year" | reverse %}
-  {% for post in items %}
-    {% assign url = post.url | relative_url %}
-    <article class="item">
-
-      {% if post.thumbnails and post.thumbnails.first and post.thumbnails.size > 1 %}
-        <a class="item__media item__media--duo" href="{{ url }}">
-          {% for img in post.thumbnails limit:2 %}
-            <img src="{{ img | relative_url }}" alt="" loading="lazy">
-          {% endfor %}
-        </a>
-      {% else %}
-        {% if post.thumbnails.first %}
-          {% assign thumb = post.thumbnails.first %}
-        {% else %}
-          {% assign thumb = post.thumbnails | default: post.thumbnail %}
-        {% endif %}
-        <a class="item__media" href="{{ url }}">
-          <img src="{{ thumb | default: '/images/500x300.png' | relative_url }}" alt="" loading="lazy">
-        </a>
-      {% endif %}
-
-      <div>
-        <h3 class="item__title"><a href="{{ url }}">{{ post.title }}</a></h3>
-        {% if post.excerpt %}
-          <p class="item__desc">{{ post.excerpt | strip_html | strip_newlines | strip }}</p>
-        {% endif %}
-        <div class="item__meta">
-          {% if post.type %}
-            <span class="tag tag--{{ post.type | strip | downcase }}">{{ post.type | strip }}</span>
-          {% endif %}
-          {% if post.info %}<em>{{ post.info }}</em>{% endif %}
-          {% if post.year %}<span>{{ post.year }}</span>{% endif %}
-        </div>
-      </div>
-
-    </article>
-  {% endfor %}
-</div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="canonical" href="{{ '/' | absolute_url }}">
+    <meta http-equiv="refresh" content="0; url={{ '/' | relative_url }}">
+    <title>Jinhee Lee</title>
+  </head>
+  <body>
+    <p>Moved to <a href="{{ '/' | relative_url }}">the home page</a>.</p>
+  </body>
+</html>

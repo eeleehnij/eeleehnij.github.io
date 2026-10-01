@@ -1,0 +1,54 @@
+{% comment %} 노출 순서는 각 파일의 order 필드로 결정된다 (1 = 맨 위) {% endcomment %}
+{% assign items = site.portfolio | sort: "order" %}
+<div class="row-list">
+  {% for post in items %}
+    {% assign url = post.url | relative_url %}
+    <article class="item">
+
+      {% if post.thumbnails.size > 1 and post.thumbnails.first %}
+        <a class="item__media item__media--duo" href="{{ url }}">
+          {% for img in post.thumbnails limit:2 %}
+            <img src="{{ img | relative_url }}" alt="" loading="lazy">
+          {% endfor %}
+        </a>
+      {% else %}
+        {% if post.thumbnails.first %}{% assign thumb = post.thumbnails.first %}{% else %}{% assign thumb = post.thumbnails %}{% endif %}
+        <a class="item__media" href="{{ url }}">
+          <img src="{{ thumb | relative_url }}" alt="" loading="lazy">
+        </a>
+      {% endif %}
+
+      <div>
+        <h3 class="item__title"><a href="{{ url }}">{{ post.title }}</a></h3>
+
+        {% if post.authors %}
+          <p class="item__authors">{{ post.authors | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
+        {% endif %}
+
+        {% if post.venue %}
+          <p class="item__venue">
+            <em>{{ post.venue }}</em>{% if post.venue_year %}, {{ post.venue_year }}{% endif %}{% if post.venue_note %} &nbsp;·&nbsp; {{ post.venue_note }}{% endif %}{% if post.badge %}<span class="badge badge--oral">{{ post.badge }}</span>{% endif %}
+          </p>
+        {% endif %}
+
+        <div class="item__links">
+          <a href="{{ url }}">Project page</a>
+          {% if post.paper %}<a href="{{ post.paper | relative_url }}">{{ post.paper_label | default: "PDF" }}</a>{% endif %}
+          {% if post.link %}<a href="{{ post.link }}">{{ post.link_label | default: "Link" }}</a>{% endif %}
+          {% if post.code %}<a href="{{ post.code }}">Code</a>{% endif %}
+        </div>
+
+        {% if post.excerpt %}
+          <p class="item__desc">{{ post.excerpt | strip_html | strip_newlines | strip }}</p>
+        {% endif %}
+
+        <div class="item__meta">
+          {% if post.type %}<span class="tag tag--{{ post.type | strip | downcase }}">{{ post.type | strip }}</span>{% endif %}
+          {% unless post.venue %}{% if post.info %}<em>{{ post.info }}</em>{% endif %}{% endunless %}
+          {% unless post.venue_year %}{% if post.year %}<span>{{ post.year }}</span>{% endif %}{% endunless %}
+        </div>
+      </div>
+
+    </article>
+  {% endfor %}
+</div>

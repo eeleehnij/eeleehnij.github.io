@@ -7,6 +7,7 @@
         {% assign href = link.url | relative_url %}
         <li>
           <a href="{{ href }}"
+             {% if link.url contains '://' or link.url contains '.pdf' %}target="_blank" rel="noopener"{% endif %}
              {% if page.url == link.url %}aria-current="page"{% endif %}>{{ link.title }}</a>
         </li>
       {% endfor %}

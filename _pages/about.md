@@ -41,11 +41,14 @@ redirect_from:
       <li><a href="mailto:jinny6876@gmail.com">Email</a></li>
       <li><a href="https://scholar.google.com/citations?user=nVyn5OsAAAAJ">Google&nbsp;Scholar</a></li>
       <li><a href="{{ '/files/JinheeLee_CV.pdf' | relative_url }}">CV</a></li>
-      <li><a href="{{ '/publications/' | relative_url }}">Publications</a></li>
-      <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
+      <li><a href="#work">Research &amp; Projects</a></li>
     </ul>
   </div>
 </section>
+
+<h2 class="section-label" id="work">Research &amp; Projects</h2>
+
+{% include work-list.html %}
 
 <h2 class="section-label">Education</h2>
 
