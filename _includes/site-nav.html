@@ -1,0 +1,28 @@
+<nav class="site-nav">
+  <div class="site-nav__inner">
+    <a class="site-nav__brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+
+    <ul class="site-nav__links">
+      {% for link in site.data.navigation.main %}
+        {% assign href = link.url | relative_url %}
+        <li>
+          <a href="{{ href }}"
+             {% if page.url == link.url %}aria-current="page"{% endif %}>{{ link.title }}</a>
+        </li>
+      {% endfor %}
+      <li>
+        <button class="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle colour theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2"/>
+            <path d="M12 2.2v2.4M12 19.4v2.4M2.2 12h2.4M19.4 12h2.4M5.1 5.1l1.7 1.7M17.2 17.2l1.7 1.7M18.9 5.1l-1.7 1.7M6.8 17.2l-1.7 1.7"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.5 14.3A8.6 8.6 0 1 1 9.7 3.5a6.9 6.9 0 0 0 10.8 10.8z"/>
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>

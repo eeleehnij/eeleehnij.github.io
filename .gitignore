@@ -18,3 +18,7 @@ package-lock.json
 
 # Ignore folders related to IDEs
 .vscode/
+# macOS / IDE junk
+.DS_Store
+**/.DS_Store
+.idea/

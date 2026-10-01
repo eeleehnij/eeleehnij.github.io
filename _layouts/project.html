@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<div class="wrap wrap--wide">
+  <a class="backlink" href="{{ '/projects/' | relative_url }}">&larr; All projects</a>
+
+  <header class="page-head">
+    <h1 class="page-head__title">{{ page.title }}</h1>
+    {% if page.excerpt %}
+      <p class="page-head__sub">{{ page.excerpt | strip_html | strip_newlines }}</p>
+    {% endif %}
+
+    {% if page.type or page.info or page.year %}
+      <div class="page-head__meta">
+        {% if page.type %}<span class="tag tag--{{ page.type | strip | downcase }}">{{ page.type | strip }}</span>{% endif %}
+        {% if page.info %}<em>{{ page.info }}</em>{% endif %}
+        {% if page.year %}<span>{{ page.year }}</span>{% endif %}
+      </div>
+    {% endif %}
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+</div>

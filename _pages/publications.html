@@ -1,266 +1,110 @@
 ---
 title: "Publications"
+subtitle: "Full list on <a href=\"https://scholar.google.com/citations?user=nVyn5OsAAAAJ\">Google Scholar</a>."
 permalink: /publications/
-author_profile: true
 ---
 
-<p>
-  You can find my full publication list on
-  <a href="https://scholar.google.com/citations?user=nVyn5OsAAAAJ" target="_blank">Google Scholar</a>.
-</p>
+<h2 class="section-label">Conferences &amp; Workshops</h2>
 
-<style>
-.pub-section {
-  max-width: 1000px;
-  margin: 40px auto;
-  font-family: system-ui, sans-serif;
-}
+<div class="row-list">
 
-.pub-item {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 40px;
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 20px;
-}
-
-.pub-thumb {
-  flex: 0 0 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.pub-thumb img {
-  width: 100%;
-  border-radius: 8px;
-  object-fit: cover;
-  border: 1px solid #ddd;
-}
-
-.pub-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.pub-title {
-  font-weight: 600;
-  font-size: 17px;
-  margin-bottom: 6px;
-}
-
-.pub-authors {
-  font-size: 14px;
-  color: #444;
-  margin-bottom: 4px;
-}
-
-.pub-meta {
-  margin-top: 2px;
-  margin-bottom: 6px;
-  line-height: 1.3;
-}
-
-.pub-venue {
-  font-size: 14px;
-  font-style: italic;
-  color: #555;
-  margin-bottom: 0;
-}
-
-/* [Oral], [Accepted] 스타일 */
-.pub-oral,
-.pub-accepted {
-  font-style: normal !important; /* 기울임 해제 */
-  font-weight: 600;
-  margin-left: 6px;
-}
-
-.pub-oral {
-  color: #d61f1f; /* 빨강 */
-}
-.pub-accepted {
-  color: #1a73e8; /* 파랑 */
-}
-
-/* 링크를 학회명 바로 아래로 붙이기 */
-.pub-links-inline {
-  font-size: 12px;
-  margin-top: 2px;
-}
-.pub-links-inline a {
-  color: #007acc;
-  text-decoration: none;
-  margin-right: 10px;
-}
-.pub-links-inline a:hover {
-  text-decoration: underline;
-}
-
-.pub-desc {
-  font-size: 14px;
-  color: #333;
-  line-height: 1.5;
-  margin-top: 6px;
-}
-</style>
-
-<div class="pub-section">
-
-  <h2>Conferences / Workshops</h2>
-
-  <!-- 1 -->
-  <div class="pub-item">
-    <div class="pub-thumb">
-      <video autoplay loop muted playsinline style="max-width:80%; display:block; margin:0 auto;">
-      <source src="{{ '/images/AMSegmentation/result.mp4' | relative_url }}" type="video/mp4">
+  <article class="item">
+    <a class="item__media" href="{{ '/portfolio/portfolio-1-mvd-am-segmentation/' | relative_url }}">
+      <video autoplay loop muted playsinline>
+        <source src="{{ '/images/AMSegmentation/result.mp4' | relative_url }}" type="video/mp4">
       </video>
-    </div>
-    
-    <div class="pub-content">
-      <div class="pub-title">Arachnoid Membrane Segmentation in Intraoperative Microscopic MVD Surgery Scenes</div>
-      <div class="pub-authors"><strong>Jinhee Lee</strong>, Hwanhee Lee, Jay J. Park, Jeong Woo Ahn, Jong Yun Kwon, Ciara McMahon, Julia Lewandowski, Seohee Park, Sanghoon Lee, Vivek P. Buch</div>
-      <div class="pub-venue">MICCAI Workshop COLAS, 2025</div>
-      <div class="pub-links">
-        <a href="/portfolio/portfolio-1-mvd-am-segmentation/">[page]</a>
-        <a href="/files/MICCAI_Wokrshop.pdf" target="_blank">[pdf]</a>
+    </a>
+    <div>
+      <h3 class="item__title">
+        <a href="{{ '/portfolio/portfolio-1-mvd-am-segmentation/' | relative_url }}">Arachnoid Membrane Segmentation in Intraoperative Microscopic MVD Surgery Scenes</a>
+      </h3>
+      <p class="item__authors"><strong>Jinhee Lee</strong>, Hwanhee Lee, Jay J. Park, Jeong Woo Ahn, Jong Yun Kwon, Ciara McMahon, Julia Lewandowski, Seohee Park, Sanghoon Lee, Vivek P. Buch</p>
+      <p class="item__venue"><em>MICCAI Workshop COLAS</em>, 2025</p>
+      <div class="item__links">
+        <a href="{{ '/portfolio/portfolio-1-mvd-am-segmentation/' | relative_url }}">Project page</a>
+        <a href="{{ '/files/MICCAI_Wokrshop.pdf' | relative_url }}">PDF</a>
       </div>
-      <div class="pub-desc">We propose a segmentation method for arachnoid membrane in real intraoperative microscopic MVD scenes, improving reliability and interpretability for surgical assistance.</div>
+      <p class="item__desc">A segmentation method for the arachnoid membrane in real intraoperative microscopic MVD scenes, improving reliability and interpretability for surgical assistance.</p>
     </div>
-  </div>
+  </article>
 
-  <!-- 2 -->
-  <div class="pub-item">
-    <div class="pub-thumb">
-      <img src="/images/SkinTroubleProgressionSimulation/overview.png" alt="Skin Simulation">
-    </div>
-    <div class="pub-content">
-      <div class="pub-title">Realistic Skin Trouble Simulation via Image Generation Models</div>
-      <div class="pub-authors"><strong>Jinhee Lee</strong>, Chanhyuk Lee, Huisu Yoon, Semin Kim, Jongha Lee</div>
-      <div class="pub-venue">IEEE ICIP, 2025<span class="pub-oral">[Oral]</span></div>
-      <div class="pub-links">
-        <a href="/portfolio/portfolio-2-skin_progression/">[page]</a>
-        <a href="/files/ICIP.pdf" target="_blank">[pdf]</a>
+  <article class="item">
+    <a class="item__media" href="{{ '/portfolio/portfolio-2-skin_progression/' | relative_url }}">
+      <img src="{{ '/images/SkinTroubleProgressionSimulation/overview.png' | relative_url }}" alt="Skin trouble progression simulation overview" loading="lazy">
+    </a>
+    <div>
+      <h3 class="item__title">
+        <a href="{{ '/portfolio/portfolio-2-skin_progression/' | relative_url }}">Realistic Skin Trouble Simulation via Image Generation Models</a>
+      </h3>
+      <p class="item__authors"><strong>Jinhee Lee</strong>, Chanhyuk Lee, Huisu Yoon, Semin Kim, Jongha Lee</p>
+      <p class="item__venue"><em>IEEE ICIP</em>, 2025<span class="badge badge--oral">Oral</span></p>
+      <div class="item__links">
+        <a href="{{ '/portfolio/portfolio-2-skin_progression/' | relative_url }}">Project page</a>
+        <a href="{{ '/files/ICIP.pdf' | relative_url }}">PDF</a>
       </div>
-      <div class="pub-desc">A generative pipeline for simulating the progression of skin disorders using diffusion and GAN models.
-        A multi-paired dermatological dataset was constructed to capture severity transitions, enabling photorealistic and controllable progression synthesis.</div>
+      <p class="item__desc">A generative pipeline for simulating the progression of skin disorders using diffusion and GAN models. A multi-paired dermatological dataset captures severity transitions, enabling photorealistic and controllable progression synthesis.</p>
     </div>
-  </div>
+  </article>
 
-  <!-- 3 -->
-  <div class="pub-item">
-    <div class="pub-thumb">
-      <img src="/images/AbsoluteDepthMVD/teaser1.png" alt="Depth Estimation">
+  <article class="item">
+    <a class="item__media" href="{{ '/portfolio/portfolio-3-mvd-cbms2025/' | relative_url }}">
+      <img src="{{ '/images/AbsoluteDepthMVD/teaser1.png' | relative_url }}" alt="Intraoperative depth estimation teaser" loading="lazy">
+    </a>
+    <div>
+      <h3 class="item__title">
+        <a href="{{ '/portfolio/portfolio-3-mvd-cbms2025/' | relative_url }}">Intraoperative Absolute Depth Estimation in MVD Surgery</a>
+      </h3>
+      <p class="item__authors"><strong>Jinhee Lee</strong>, Hwanhee Lee, Jay J. Park, Ethan Htun, Bruce Changlong Xu, Sang Hoon Cho, Sanghoon Lee, Vivek P. Buch</p>
+      <p class="item__venue"><em>IEEE CBMS</em>, 2025</p>
+      <div class="item__links">
+        <a href="{{ '/portfolio/portfolio-3-mvd-cbms2025/' | relative_url }}">Project page</a>
+        <a href="{{ '/files/CBMS.pdf' | relative_url }}">PDF</a>
+        <a href="https://www.computer.org/csdl/proceedings-article/cbms/2025/261000a341/284Kgjo3aQU">IEEE</a>
+      </div>
+      <p class="item__desc">Depth estimation during microvascular decompression surgery using DepthAnything-V2 to obtain absolute intraoperative distance measurements, validated through optical calibration of surgical microscopy and 3D reconstruction.</p>
     </div>
-    <div class="pub-content">
-      <div class="pub-title">Intraoperative Absolute Depth Estimation in MVD Surgery</div>
-      <div class="pub-authors"><strong>Jinhee Lee</strong>, Hwanhee Lee, Jay J. Park, Ethan Htun, Bruce Changlong Xu, Sang Hoon Cho, Sanghoon Lee, Vivek P. Buch</div>
-      <div class="pub-venue">IEEE CBMS, 2025</div>
-      <div class="pub-links">
-        <a href="/portfolio/portfolio-3-mvd-cbms2025/">[page]</a>
-        <a href="/files/CBMS.pdf" target="_blank">[pdf]</a>
-      </div>
-      <div class="pub-desc">Depth estimation during microvascular decompression (MVD) surgery uses DepthAnything-V2 to obtain absolute intraoperative distance measurements.
-         We validated depth accuracy through optical calibration of surgical microscopy and 3D reconstruction, demonstrating precise geometric localization of compression sites.
-      </div>
-    </div>
-  </div>
-
-  <h2>Journals</h2>
-
-  <div class="pub-item">
-    <div class="pub-thumb">
-      <img src="/images/CosmeticRecommendation/teaser.png" alt="Skin Recommendation">
-    </div>
-    <div class="pub-content">
-      <div class="pub-title">
-        Deep learning-based skin care product recommendation: A focus on cosmetic ingredient analysis and facial skin conditions
-      </div>
-      <div class="pub-authors">
-        <strong>Jinhee Lee</strong>, Huisu Yoon, Semin Kim, Chanhyeok Lee, Jongha Lee, Sangwook Yoo
-      </div>
-
-      <!-- 저널명 / 연도 -->
-      <div class="pub-meta">
-        <div class="pub-venue">
-          Wiley Journal of Cosmetic Dermatology, 2024  <em>IF: 2.5 (SCIE)</em>
-        </div>
-        <div class="pub-links">
-          <a href="/portfolio/portfolio-4-recommendation/">[page]</a>
-          <a href="/files/JCD.pdf" target="_blank">[pdf]</a>
-        </div>
-      </div>
-
-      <div class="pub-desc">
-        A deep learning–based recommendation framework analyzing both cosmetic ingredient composition and facial skin condition to suggest personalized skincare products.
-      </div>
-    </div>
-  </div>
-
-  <div class="pub-item">
-    <div class="pub-thumb">
-      <img src="/images/Scramjet/teaser.png" alt="Scramjet Visualization">
-    </div>
-    <div class="pub-content">
-      <div class="pub-title">
-        Study on Spray Visualization and Atomization Characteristics of Air-assist Type Injector for Scramjet Engine
-      </div>
-      <div class="pub-authors">
-        <strong>Jinhee Lee</strong>, Sanghoon Lee, Semin Kim, Kyungjae Lee, Jaiho Kim, Sooseok Yang
-      </div>
-
-      <!-- 저널명 / 연도 -->
-      <div class="pub-meta">
-        <div class="pub-venue">
-          Journal of the Korean Society of Propulsion Engineers, 2017
-        </div>
-        <div class="pub-links">
-          <a href="/portfolio/portfolio-98-scramjet/">[page]</a>
-          <a href="/files/KSPE.pdf" target="_blank">[pdf (Korean)]</a>
-        </div>
-      </div>
-      <div class="pub-desc">
-        Experimental investigation of atomization behavior and spray visualization in air-assist type injectors for scramjet propulsion systems.
-      </div>
-    </div>
-  </div>
+  </article>
 
 </div>
 
+<h2 class="section-label">Journals</h2>
 
-<!-- <p>You can also find my full list on <a href="https://scholar.google.com/citations?user=nVyn5OsAAAAJ">Google Scholar</a>.</p>
+<div class="row-list">
 
-<div style="line-height: 1.8; max-width: 1500px; margin: 0 auto;">
-  <div style="margin-bottom: 15px;">
-    <span style="font-weight: bold;">Jinhee Lee</span>, Hwanhee Lee, Jay J. Park, Jeong Woo Ahn, Jong Yun Kwon, Ciara McMahon, Julia Lewandowski, Seohee Park, Sanghoon Lee, Vivek P. Buch.
-    Arachnoid Membrane Segmentation in Intraoperative Microscopic MVD Surgery Scenes, in MICCAI Workshop COLAS, 2025. [Accepted]
-    <a href="https://eeleehnij.github.io/portfolio/portfolio-1-mvd%20am%20segmentation/">[page]</a> 
-    <a href="/files/MICCAI_Wokrshop.pdf" target="_blank">[pdf]</a>
-  </div>
-  <div style="margin-bottom: 15px;">
-    <span style="font-weight: bold;">Jinhee Lee</span>, Chanhyuk Lee, Huisu Yoon, Semin Kim, Jongha Lee.
-    Realistic Skin Trouble Simulation via Image Generation Models, in IEEE ICIP, 2025.
-    <a href="https://eeleehnij.github.io/portfolio/portfolio-2-skin_progression/">[page]</a>
-    <a href="/files/ICIP.pdf" target="_blank">[pdf]</a>
-  </div>
-  <div style="margin-bottom: 15px;">
-    <span style="font-weight: bold;">Jinhee Lee</span>, Hwanhee Lee, Jay J. Park, Ethan Htun, Bruce Changlong Xu, Sang Hoon Cho, Sanghoon Lee, Vivek P. Buch.
-    Intraoperative Absolute Depth Estimation in MVD Surgery, in IEEE CBMS, 2025.
-    <a href="https://eeleehnij.github.io/portfolio/portfolio-3-mvd%20cbms2025/">[page]</a>
-    <a href="/files/CBMS.pdf" target="_blank">[pdf]</a> 
-  </div>
-  <div style="margin-bottom: 15px;">
-    <span style="font-weight: bold;">Jinhee Lee</span>, Huisu Yoon, Semin Kim, Chanhyeok Lee, Jongha Lee, Sangwook Yoo.
-    Deep learning-based skin care product recommendation: A focus on cosmetic ingredient analysis and facial skin conditions, Wiley Journal of Cosmetic Dermatology, 2024.
-    <a href="https://eeleehnij.github.io/portfolio/portfolio-4-recommendation/">[page]</a>
-    <a href="/files/JCD.pdf" target="_blank">[pdf]</a> 
-  </div>
-  <div style="margin-bottom: 15px;">
-    <span style="font-weight: bold;">Jinhee Lee</span>, Sanghoon Lee, Semin Kim, Kyungjae Lee, Jaiho Kim, Sooseok Yang.
-    Study on Spray Visualization and Atomization Characteristics of Air-assist Type Injector for Scramjet Engine, in Journal of the Korean Society of Propulsion Engineers, 2017.
-    <a href="https://eeleehnij.github.io/portfolio/portfolio-5-scramjet/">[page]</a>
-  </div>
+  <article class="item">
+    <a class="item__media" href="{{ '/portfolio/portfolio-4-recommendation/' | relative_url }}">
+      <img src="{{ '/images/CosmeticRecommendation/teaser.png' | relative_url }}" alt="Skincare recommendation teaser" loading="lazy">
+    </a>
+    <div>
+      <h3 class="item__title">
+        <a href="{{ '/portfolio/portfolio-4-recommendation/' | relative_url }}">Deep learning-based skin care product recommendation: A focus on cosmetic ingredient analysis and facial skin conditions</a>
+      </h3>
+      <p class="item__authors"><strong>Jinhee Lee</strong>, Huisu Yoon, Semin Kim, Chanhyeok Lee, Jongha Lee, Sangwook Yoo</p>
+      <p class="item__venue"><em>Journal of Cosmetic Dermatology</em> (Wiley), 2024 &nbsp;·&nbsp; IF 2.5, SCIE</p>
+      <div class="item__links">
+        <a href="{{ '/portfolio/portfolio-4-recommendation/' | relative_url }}">Project page</a>
+        <a href="{{ '/files/JCD.pdf' | relative_url }}">PDF</a>
+      </div>
+      <p class="item__desc">A deep learning–based recommendation framework analyzing both cosmetic ingredient composition and facial skin condition to suggest personalized skincare products.</p>
+    </div>
+  </article>
+
+  <article class="item">
+    <a class="item__media" href="{{ '/portfolio/portfolio-98-scramjet/' | relative_url }}">
+      <img src="{{ '/images/Scramjet/teaser.png' | relative_url }}" alt="Scramjet spray visualization teaser" loading="lazy">
+    </a>
+    <div>
+      <h3 class="item__title">
+        <a href="{{ '/portfolio/portfolio-98-scramjet/' | relative_url }}">Study on Spray Visualization and Atomization Characteristics of Air-assist Type Injector for Scramjet Engine</a>
+      </h3>
+      <p class="item__authors"><strong>Jinhee Lee</strong>, Sanghoon Lee, Semin Kim, Kyungjae Lee, Jaiho Kim, Sooseok Yang</p>
+      <p class="item__venue"><em>Journal of the Korean Society of Propulsion Engineers</em>, 2017</p>
+      <div class="item__links">
+        <a href="{{ '/portfolio/portfolio-98-scramjet/' | relative_url }}">Project page</a>
+        <a href="{{ '/files/KSPE.pdf' | relative_url }}">PDF (Korean)</a>
+      </div>
+      <p class="item__desc">Experimental investigation of atomization behavior and spray visualization in air-assist type injectors for scramjet propulsion systems.</p>
+    </div>
+  </article>
+
 </div>
- -->
