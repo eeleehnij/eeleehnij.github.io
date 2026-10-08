@@ -441,10 +441,15 @@ th {
   line-height: 0;
 }
 
+/* 폭과 높이를 모두 auto 로 두고 두 축에 상한만 건다. 이래야 브라우저가
+   원본 비율을 유지한 채 두 제약에 맞춰 축소한다. width 를 100% 로 고정하면
+   max-height 가 높이만 깎아 이미지가 눌린다. */
 .item__media > img,
 .item__media > video {
-  width: 100%;
+  width: auto;
   height: auto;
+  max-width: 100%;
+  max-height: 10.5rem;
   display: block;
   border-radius: 2px;
   transition: transform 0.35s ease;
