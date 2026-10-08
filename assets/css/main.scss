@@ -318,14 +318,9 @@ th {
   border-bottom: 1px solid transparent;
 }
 
+/* 호버 시 글자색은 그대로 두고 밑줄로만 표시한다 */
 .site-nav__links a:hover {
-  color: var(--fg);
   border-bottom-color: var(--rule-strong);
-}
-
-.site-nav__links a[aria-current="page"] {
-  color: var(--fg);
-  border-bottom-color: var(--accent);
 }
 
 .theme-toggle {
