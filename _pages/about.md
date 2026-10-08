@@ -49,9 +49,7 @@ redirect_from:
 <h2 class="section-label" id="projects">Projects</h2>
 
 <p class="section-intro">
-  Projects spanning neurosurgical scene understanding, skin and beauty analysis, healthcare
-  applications, generative models for content, and aerial robotics &mdash; work from industry,
-  coursework, and personal curiosity that didn't end up as a paper.
+  Projects I've worked on at my job, at school, and on my own.
 </p>
 
 {% include work-list.html kinds="project,capstone" %}
