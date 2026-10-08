@@ -23,8 +23,8 @@ redirect_from:
       (3D reconstruction and multi-view correspondence) to support neurosurgeons. I'm also a
       research collaborator with SIMILab at Stanford Neurosurgery and the AI lab at Bongseng
       Memorial Hospital. I did my M.S. in Computer Science and Engineering at Ohio State
-      University, my first M.S. in Aerospace Engineering at UST&ndash;KARI, where I worked on
-      supersonic combustion, and my B.S. in Aerospace Engineering at Inha University.
+      University, and my M.Eng. and B.S. in Aerospace Engineering at UST&ndash;KARI and Inha
+      University. At KARI I worked on supersonic combustion.
     </p>
 
     <ul class="intro__links">
