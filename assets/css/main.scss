@@ -232,6 +232,13 @@ th {
   margin-top: 0;
 }
 
+/* 섹션 제목 아래 한 문단짜리 설명 */
+.section-intro {
+  max-width: 48rem;
+  margin: -0.4rem 0 2rem;
+  color: var(--fg-muted);
+}
+
 /* --------------------------------------------------------------------------
    4. 레이아웃 — 중앙 단일 컬럼
    -------------------------------------------------------------------------- */
@@ -387,21 +394,7 @@ th {
   margin-bottom: 0.2rem;
 }
 
-.intro__role {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--fg-faint);
-  margin-bottom: 1.4rem;
-}
-
 .intro__body p:last-child { margin-bottom: 0; }
-
-.intro__lead {
-  font-size: 1.08rem;
-  color: var(--fg);
-}
 
 /* 연락처 링크 — 아이콘 없이 텍스트만 */
 .intro__links {
@@ -420,9 +413,9 @@ th {
 }
 
 .intro__links li + li::before {
-  content: "·";
+  content: "/";
   position: absolute;
-  left: -0.68rem;
+  left: -0.72rem;
   color: var(--fg-faint);
 }
 

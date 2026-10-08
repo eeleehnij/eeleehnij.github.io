@@ -1,5 +1,19 @@
-{% comment %} 노출 순서는 각 파일의 order 필드로 결정된다 (1 = 맨 위) {% endcomment %}
-{% assign items = site.portfolio | sort: "order" %}
+{% comment %}
+  kinds : 표시할 type 목록 (쉼표 구분). 생략하면 전체.
+  노출 순서는 각 파일의 order 필드로 결정된다 (1 = 맨 위).
+{% endcomment %}
+{% if include.kinds %}
+  {% assign kinds = include.kinds | split: "," %}
+  {% assign items = "" | split: "" %}
+  {% for k in kinds %}
+    {% assign sel = site.portfolio | where: "type", k %}
+    {% assign items = items | concat: sel %}
+  {% endfor %}
+  {% assign items = items | sort: "order" %}
+{% else %}
+  {% assign kinds = "" | split: "" %}
+  {% assign items = site.portfolio | sort: "order" %}
+{% endif %}
 <div class="row-list">
   {% for post in items %}
     {% assign url = post.url | relative_url %}
@@ -45,7 +59,7 @@
         {% endif %}
 
         <div class="item__meta">
-          {% if post.type %}<span class="tag tag--{{ post.type | strip | downcase }}">{{ post.type | strip }}</span>{% endif %}
+          {% if post.type and kinds.size != 1 %}<span class="tag tag--{{ post.type | strip | downcase }}">{{ post.type | strip }}</span>{% endif %}
           {% unless post.venue %}{% if post.info %}<em>{{ post.info }}</em>{% endif %}{% endunless %}
           {% unless post.venue_year %}{% if post.year %}<span>{{ post.year }}</span>{% endif %}{% endunless %}
         </div>
