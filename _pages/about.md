@@ -38,10 +38,10 @@ redirect_from:
 <h2 class="section-label" id="research">Research</h2>
 
 <p class="section-intro">
-  I'm interested in surgical AI, biomedical image analysis, vision-language models, and
-  intelligent robotics. Most of my research is on segmentation, depth estimation, image
-  generation, and vision-language models &mdash; mainly for understanding the surgical scene,
-  but also for dermatology and other medical imaging problems.
+  I'm interested in computer vision, surgical AI, biomedical image analysis, and
+  vision-language models. I've conducted research on segmentation, depth estimation, image
+  generation, and vision-language models, with a primary focus on supporting surgeons in
+  understanding and interpreting surgical scenes.
 </p>
 
 {% include work-list.html kinds="research" %}
@@ -49,8 +49,9 @@ redirect_from:
 <h2 class="section-label" id="projects">Projects</h2>
 
 <p class="section-intro">
-  Work that didn't end up as a paper — things I built in industry, for coursework,
-  and on my own.
+  Projects spanning neurosurgical scene understanding, skin and beauty analysis, healthcare
+  applications, generative models for content, and aerial robotics &mdash; work from industry,
+  coursework, and personal curiosity that didn't end up as a paper.
 </p>
 
 {% include work-list.html kinds="project,capstone" %}
