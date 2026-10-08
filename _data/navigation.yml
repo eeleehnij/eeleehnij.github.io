@@ -1,7 +1,0 @@
-# 상단 메뉴. 홈 한 페이지에 모든 내용이 있으므로 외부 링크만 둔다.
-main:
-  - title: "CV"
-    url: /files/JinheeLee_CV.pdf
-
-  - title: "Google Scholar"
-    url: https://scholar.google.com/citations?user=nVyn5OsAAAAJ

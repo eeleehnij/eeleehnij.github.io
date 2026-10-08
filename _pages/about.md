@@ -43,4 +43,9 @@ redirect_from:
 
 <h2 class="section-label" id="projects">Projects</h2>
 
+<p class="section-intro">
+  Work that didn't end up as a paper — things I built in industry, for coursework,
+  and on my own.
+</p>
+
 {% include work-list.html kinds="project,capstone" %}
