@@ -38,10 +38,10 @@ redirect_from:
 <h2 class="section-label" id="research">Research</h2>
 
 <p class="section-intro">
-  I'm interested in surgical AI, biomedical image analysis, vision-language foundation models,
-  and intelligent robotics. Most of my research is about recovering the surgical scene —
-  anatomy, depth, and context — from intraoperative video, with the goal of making surgery
-  safer and more accessible.
+  I'm interested in surgical AI, biomedical image analysis, vision-language models, and
+  intelligent robotics. Most of my research is on segmentation, depth estimation, image
+  generation, and vision-language models &mdash; mainly for understanding the surgical scene,
+  but also for dermatology and other medical imaging problems.
 </p>
 
 {% include work-list.html kinds="research" %}
