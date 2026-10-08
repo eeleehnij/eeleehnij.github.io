@@ -13,9 +13,9 @@ redirect_from:
   <div class="intro__body">
     <h1 class="intro__name">Jinhee Lee</h1>
 
-    <p>
-      I am currently seeking a Ph.D. position to explore research in computer vision,
-      robotics, and biomedical AI for healthcare.
+    <p class="intro__lead">
+      I am seeking a Ph.D. opportunity to pursue research in computer vision, robotics,
+      and AI for healthcare.
     </p>
 
     <p>

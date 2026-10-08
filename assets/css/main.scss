@@ -357,6 +357,11 @@ th {
 
 .intro__body p:last-child { margin-bottom: 0; }
 
+/* 첫 문단(Ph.D. 지원 문구)만 이탤릭으로 구분 */
+.intro__lead {
+  font-style: italic;
+}
+
 /* 연락처 링크 — 아이콘 없이 텍스트만 */
 .intro__links {
   display: flex;
