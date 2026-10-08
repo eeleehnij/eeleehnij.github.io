@@ -698,6 +698,14 @@ a.item__media:hover video {
 .column.is-4 { flex: 0 0 calc(33.333% - 1rem); }
 .column.is-narrow { flex: 0 0 auto; }
 
+/* .columns 안에 .column 이 하나뿐이면 폭 지정(is-half 등)을 무시하고
+   전체 폭을 쓴다. 2단으로 쓰려고 적어둔 is-half 가 짝 없이 혼자 남은
+   곳들이 있어, 그대로 두면 글이 절반 폭에서만 줄바꿈된다. */
+.columns > .column:only-child {
+  flex: 1 1 100%;
+  max-width: 100%;
+}
+
 /* Bulma 의 .title / .subtitle */
 .title {
   font-family: var(--font-serif);
