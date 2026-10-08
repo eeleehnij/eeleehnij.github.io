@@ -14,12 +14,16 @@ redirect_from:
     <h1 class="intro__name">Jinhee Lee</h1>
 
     <p>
-      I'm an AI engineer at the Lululab AI Research Center in Seoul, where I work on medical
-      imaging and generative AI for dermatology. I'm also a research collaborator with SIMILab
-      at Stanford Neurosurgery and the AI lab at Bongseng Memorial Hospital, where I work on
-      surgical AI. I did my M.S. in Computer Science and Engineering at Ohio State, and my
-      first M.S. and B.S. in Aerospace Engineering at UST and Inha University. I'm currently
-      applying for Ph.D. positions in computer vision, robotics, and biomedical AI.
+      I am currently seeking a Ph.D. position to explore research in computer vision,
+      robotics, and biomedical AI for healthcare.
+    </p>
+
+    <p>
+      I'm currently a CV &amp; AI Engineer at iQ Surgical, developing surgical vision pipelines
+      (3D reconstruction and multi-view correspondence) to support neurosurgeons. I'm also a
+      research collaborator with SIMILab at Stanford Neurosurgery and the AI lab at Bongseng
+      Memorial Hospital. I did my M.S. in Computer Science and Engineering at Ohio State
+      University, and my B.S. in Aerospace Engineering at Inha University.
     </p>
 
     <ul class="intro__links">

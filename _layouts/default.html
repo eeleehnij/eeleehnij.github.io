@@ -8,7 +8,11 @@ layout: compress
     {% include head/custom.html %}
   </head>
   <body>
-    <main id="main" class="page-top">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    {% include site-nav.html %}
+
+    <main id="main">
       {{ content }}
     </main>
 

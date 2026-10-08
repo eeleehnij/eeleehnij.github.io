@@ -269,15 +269,34 @@ th {
 }
 
 /* --------------------------------------------------------------------------
-   5. 페이지 상단 여백 / 테마 토글
+   5. 상단 내비게이션 / 테마 토글
    -------------------------------------------------------------------------- */
 
-.page-top {
-  padding-top: 4.5rem;
+.site-nav {
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 3.5rem;
+}
+
+.site-nav__inner {
+  padding: 1.6rem var(--gutter);
+  max-width: var(--measure-wide);
+  margin: 0 auto;
+}
+
+.site-nav__brand {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav__brand:hover {
+  color: var(--accent-hover);
 }
 
 @media (max-width: 40rem) {
-  .page-top { padding-top: 2.75rem; }
+  .site-nav { margin-bottom: 2.5rem; }
 }
 
 .theme-toggle {
@@ -757,6 +776,7 @@ a.item__media:hover video {
    -------------------------------------------------------------------------- */
 
 @media print {
+  .site-nav,
   .site-footer,
   .theme-toggle { display: none; }
   body { background: #fff; color: #000; }
