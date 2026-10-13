@@ -22,3 +22,6 @@ package-lock.json
 .DS_Store
 **/.DS_Store
 .idea/
+
+# 작업용 staging 폴더 — 미공개 원고 등이 들어가므로 절대 커밋하지 않는다
+preparation/
