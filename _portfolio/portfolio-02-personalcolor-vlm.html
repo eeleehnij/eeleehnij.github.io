@@ -3,12 +3,73 @@ title: "Personal Color Analysis with Vision-Language Models"
 excerpt: "Personal color classification from facial images using vision-language models."
 collection: portfolio
 type: research
-venue: "In preparation"
+authors: "**Jinhee Lee**, Chan-young Choi, Huisu Yoon"
+venue: "IEEE Access"
+venue_note: "Under revision"
 order: 4
-# 논문이 나오면 아래 주석을 풀고 채운다
-# authors: "**Jinhee Lee**, ..."
-# venue: "<학회명>"
+thumbnails: /images/PersonalcolorVLM/pcvlm_overview.png
+# 게재가 확정되면 아래를 채우고 venue_note 를 지운다
 # venue_year: 2026
 # paper: "/files/<파일>.pdf"
-thumbnails: /images/PersonalcolorVLM/pcvlm_overview.png
 ---
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="/images/PersonalcolorVLM/pcvlm_overview.png" alt="Method overview"
+           style="width: 100%; height: auto;">
+      <p class="is-size-7" style="margin-top: 10px; color: var(--fg-faint);">
+        Overview of the proposed personal color analysis pipeline.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT THIS WORK -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">About This Work</h2>
+        <p>
+          This work studies vision-language models for personal color analysis. Personal color
+          refers to an individual's most suitable color palette based on skin tone, hair, and eye
+          color, and is widely used in the fashion and beauty domains. It builds on our earlier
+          <a href="{{ '/portfolio/portfolio-5-personalcolor/' | relative_url }}">deep learning-based
+          personal color classifier</a>, which framed the task as plain image classification.
+        </p>
+        <p>
+          We construct <strong>PCVLM-DB</strong>, an instruction-tuning dataset for the task.
+          Facial images from Deep Armocromia, FFHQ, and a kiosk dataset are aligned to a common
+          label space &mdash; warm/cool and seasonal tones are retained while fine-grained subtype
+          tones are discarded &mdash; and annotated by experts through collaborative decision-making,
+          with a written rationale recorded for each decision. The resulting image, label and
+          rationale triples are converted into image-text pairs using a predefined QA template
+          and LLM paraphrasing.
+        </p>
+        <p>
+          Vision-language models (Qwen-VL, InternVL, LLaVA) are then fine-tuned on PCVLM-DB through
+          visual instruction tuning, so that the model returns a personal color type together with
+          the reasoning behind it rather than a bare class label.
+        </p>
+        <p>
+          The manuscript has been submitted to <em>IEEE Access</em> and is currently under revision.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 내용이 준비되면 아래 주석을 풀고 채운다. 섹션은 필요한 만큼 복제하면 된다.
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Method</h2>
+        <p>...</p>
+        <img src="IMAGE_PATH_HERE" style="width: 100%; height: auto;">
+      </div>
+    </div>
+  </div>
+</section>
+-->
