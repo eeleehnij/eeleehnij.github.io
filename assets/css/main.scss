@@ -471,6 +471,8 @@ th {
   max-width: 100%;
   max-height: 10.5rem;
   display: block;
+  /* 상한에 걸려 칼럼보다 좁아진 썸네일을 가로 중앙에 둔다 */
+  margin-inline: auto;
   border-radius: 2px;
   transition: transform 0.35s ease;
 }
