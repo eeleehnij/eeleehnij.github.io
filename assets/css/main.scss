@@ -434,6 +434,11 @@ th {
   padding-bottom: 0;
 }
 
+/* 썸네일이 없는 항목 (예: 준비 중인 논문)은 한 단으로 */
+.item--nomedia {
+  grid-template-columns: 1fr;
+}
+
 /* 썸네일: 칼럼 폭을 꽉 채우고 높이는 원본 비율을 그대로 따른다.
    자르지 않으므로 이미지 전체가 보이고 비율도 왜곡되지 않는다. */
 .item__media {
