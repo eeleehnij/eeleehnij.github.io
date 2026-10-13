@@ -21,7 +21,7 @@
     {% assign has_media = false %}{% if post.thumbnails %}{% assign has_media = true %}{% endif %}
     {% assign body_len = post.content | strip | size %}
     {% assign has_page = false %}{% if body_len > 0 %}{% assign has_page = true %}{% endif %}
-    <article class="item{% unless has_media %} item--nomedia{% endunless %}">
+    <article class="item">
 
       {% if post.thumbnails.size > 1 and post.thumbnails.first %}
         <a class="item__media" href="{{ url }}">
@@ -36,6 +36,17 @@
         <a class="item__media" href="{{ url }}">
           <img src="{{ thumb | relative_url }}" alt="" loading="lazy">
         </a>
+      {% else %}
+        {% comment %} 썸네일이 없어도 자리를 지켜 행 레이아웃을 맞춘다 {% endcomment %}
+        <div class="item__media item__media--empty" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"
+               stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4.5" width="18" height="15" rx="1.8"/>
+            <circle cx="8.6" cy="9.8" r="1.5"/>
+            <path d="M3 16.2l4.6-4.1a1.6 1.6 0 0 1 2.1 0l4.3 3.9"/>
+            <path d="M13.4 13.6l2.3-2a1.6 1.6 0 0 1 2.1 0L21 14.3"/>
+          </svg>
+        </div>
       {% endif %}
 
       <div>

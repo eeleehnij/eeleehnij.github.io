@@ -434,9 +434,24 @@ th {
   padding-bottom: 0;
 }
 
-/* 썸네일이 없는 항목 (예: 준비 중인 논문)은 한 단으로 */
-.item--nomedia {
-  grid-template-columns: 1fr;
+/* 썸네일이 없는 항목(예: 준비 중인 논문)의 자리맞춤용 빈 칸 */
+/* .item__media 의 display:block 보다 뒤에 선언되지 않아도 이기도록
+   복합 선택자로 특이도를 올린다 */
+.item__media.item__media--empty {
+  aspect-ratio: 16 / 10;
+  max-height: 10.5rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-faint);
+}
+
+.item__media.item__media--empty svg {
+  width: 30px;
+  height: 30px;
 }
 
 /* 썸네일: 칼럼 폭을 꽉 채우고 높이는 원본 비율을 그대로 따른다.
