@@ -18,11 +18,6 @@ thumbnails: /images/PersonalcolorVLM/pcvlm_overview.png
     <div class="hero-body">
       <img src="/images/PersonalcolorVLM/pcvlm_overview.png" alt="Overview of the PC-VLM pipeline"
            style="width: 100%; height: auto;">
-      <p class="is-size-7" style="margin-top: 10px; color: var(--fg-faint);">
-        Overview of the proposed pipeline. Left: construction of PCVLM-DB from public and
-        proprietary sources with expert-guided hierarchical annotation. Right: visual instruction
-        tuning of pre-trained vision-language models.
-      </p>
     </div>
   </div>
 </section>
@@ -36,13 +31,10 @@ thumbnails: /images/PersonalcolorVLM/pcvlm_overview.png
         <p>
           Personal color analysis identifies the color palette that harmonizes with an individual's
           natural appearance &mdash; skin undertone, eye color, hair color &mdash; and guides choices
-          in fashion, cosmetics, and styling. In practice it is done by trained consultants through
-          in-person draping sessions, which makes it subjective, costly, and hard to scale.
-        </p>
-        <p>
-          We propose <strong>PC-VLM</strong>, a domain-specific vision-language model for the task.
-          Unlike a plain classifier, it returns both a personal color category and a written rationale
-          grounded in the visual cues behind the decision. This work extends our earlier
+          in fashion, cosmetics, and styling. We propose <strong>PC-VLM</strong>, a domain-specific
+          vision-language model for the task. Unlike a plain classifier, it returns both a personal
+          color category and a written rationale grounded in the visual cues behind the decision.
+          This work extends our earlier
           <a href="{{ '/portfolio/portfolio-5-personalcolor/' | relative_url }}">CNN-based personal
           color classifier</a>, which produced a bare class label with no explanation.
         </p>
@@ -62,22 +54,20 @@ thumbnails: /images/PersonalcolorVLM/pcvlm_overview.png
           personal color analysis: roughly <strong>8,700 facial images</strong> paired with about
           <strong>30,000 question-answer pairs</strong>. It integrates the public Deep Armocromia
           dataset, images sampled from FFHQ, and a proprietary set acquired from an industrial
-          imaging source.
+          imaging source. Labels follow a three-level hierarchy: a warm/cool binary tone, four
+          seasonal tones (Spring, Summer, Autumn, Winter), and eight fine-grained subtypes (Light,
+          Bright, Mute, Deep). Three trained annotators labeled every internal image under the
+          supervision of a domain expert, following a predefined decision flowchart; ambiguous cases
+          were resolved by discussion and consensus. Annotators also wrote a <em>rationale</em>
+          explaining each diagnostic decision, which is what allows the model to learn to explain
+          rather than only predict. Image, label and rationale triples are then converted into
+          image-text pairs using predefined QA templates, with LLM paraphrasing to diversify
+          question phrasing while preserving meaning.
         </p>
-        <p>
-          Labels follow a three-level hierarchy: a warm/cool binary tone, four seasonal tones
-          (Spring, Summer, Autumn, Winter), and eight fine-grained subtypes (Light, Bright, Mute,
-          Deep). Three trained annotators labeled every internal image under the supervision of a
-          domain expert, following a predefined decision flowchart; ambiguous cases were resolved by
-          discussion and consensus. Annotators also wrote a <em>rationale</em> explaining each
-          diagnostic decision, which is what allows the model to learn to explain rather than only
-          predict.
-        </p>
-        <p>
-          Image, label and rationale triples are then converted into image-text pairs using
-          predefined QA templates, with LLM paraphrasing to diversify question phrasing while
-          preserving meaning.
-        </p>
+        <div style="margin-top: 20px;">
+          <img src="/images/PersonalcolorVLM/pcvlmdb.png" alt="PCVLM-DB statistics"
+               style="width: 100%; height: auto;">
+        </div>
       </div>
     </div>
   </div>
@@ -94,11 +84,9 @@ thumbnails: /images/PersonalcolorVLM/pcvlm_overview.png
           supervised fine-tuning &mdash; Qwen3-VL, Qwen2.5-VL, InternVL3, InternVL2.5, and
           LLaVA-v1.5. Each model couples a vision encoder with a multimodal projector and an LLM
           decoder: visual features are projected into the language embedding space and processed
-          jointly with text tokens under a standard next-token prediction objective.
-        </p>
-        <p>
-          This adapts general-purpose multimodal models into domain experts that associate facial
-          chromatic features with the diagnostic criteria used in personal color analysis.
+          jointly with text tokens under a standard next-token prediction objective. This adapts
+          general-purpose multimodal models into domain experts that associate facial chromatic
+          features with the diagnostic criteria used in personal color analysis.
         </p>
       </div>
     </div>
@@ -112,60 +100,31 @@ thumbnails: /images/PersonalcolorVLM/pcvlm_overview.png
       <div class="column is-full">
         <h2 class="title is-3 has-text-centered">Results</h2>
         <p>
-          The best model (Qwen3-VL-8B, fine-tuned) reaches the following accuracy across the three
-          levels of the label hierarchy:
-        </p>
-
-        <table class="table is-bordered">
-          <tr><th>Task</th><th>Accuracy</th><th>F1</th></tr>
-          <tr><td>Warm / Cool</td><td>91.13%</td><td>91.43%</td></tr>
-          <tr><td>Seasonal tone (4 classes)</td><td>85.94%</td><td>86.58%</td></tr>
-          <tr><td>Fine-grained subtype (8 classes)</td><td>70.00%</td><td>70.47%</td></tr>
-        </table>
-
-        <p>
           PC-VLMs outperform both conventional vision-only classifiers (ResNet, Swin, ViT backbones
-          with a linear head) and zero-shot commercial multimodal models. On fine-grained subtype
-          classification the gap over zero-shot commercial models exceeds 44 points of accuracy.
+          with a linear head) and zero-shot commercial multimodal models, with the largest margin on
+          fine-grained subtype classification. The model is also noticeably more stable across
+          classes, holding balanced performance where the vision-only and zero-shot baselines
+          fluctuate sharply and collapse on the rarer winter subtypes. Beyond the numbers, the
+          generated responses carry hierarchical reasoning: they name the warm/cool tone, the
+          seasonal type, and the subtype, and justify each with the visual evidence the decision
+          rests on.
         </p>
-        <p>
-          The model is also noticeably more stable across classes. Accuracy varies by about 15 points
-          between the eight subtypes, against roughly 30 points for the vision-only and zero-shot
-          baselines &mdash; the fine-tuned model does not collapse on the rarer winter subtypes the
-          way the baselines do.
-        </p>
-        <p>
-          Beyond the numbers, the generated responses carry hierarchical reasoning: they name the
-          warm/cool tone, the seasonal type, and the subtype, and justify each with the visual
-          evidence the decision rests on.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- LIMITATIONS -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns">
-      <div class="column is-full">
-        <h2 class="title is-3 has-text-centered">Limitations and Ongoing Work</h2>
-        <p>
-          Fine-grained subtype estimation is where the model still diverges from expert judgment.
-          Failure cases cluster around subtle tonal boundaries &mdash; whether skin reads as glossy
-          or matte, or whether a pale face with localized redness is warm or cool &mdash; where
-          pixel-level sensitivity and human aesthetic perception disagree.
-        </p>
-        <p>
-          Supervised fine-tuning also makes the generated rationales fairly rigid in form. We are
-          exploring preference optimization and reinforcement learning to encourage more flexible
-          reasoning on ambiguous cases.
-        </p>
-        <p>
-          PC-VLM is positioned as a decision-support tool alongside human experts, not a replacement
-          for professional consultation: it offers scalable preliminary analysis for a broad user
-          base while deferring borderline cases to expert review.
-        </p>
+        <div style="margin-top: 20px;">
+          <img src="/images/PersonalcolorVLM/pcvlm_result1.png"
+               alt="Warm/cool and seasonal tone classification results"
+               style="width: 100%; height: auto;">
+        </div>
+        <div style="margin-top: 20px;">
+          <img src="/images/PersonalcolorVLM/pcvlm_result2.png"
+               alt="Fine-grained subtype classification results"
+               style="width: 100%; height: auto;">
+        </div>
+        <div style="margin-top: 20px;">
+          <img src="/images/PersonalcolorVLM/pcvlm_result3.png"
+               alt="Qualitative examples of PC-VLM predictions and rationales"
+               style="width: 100%; height: auto;">
+        </div>
       </div>
     </div>
   </div>
