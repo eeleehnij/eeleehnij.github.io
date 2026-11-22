@@ -615,7 +615,7 @@ th {
   display: grid;
   grid-template-columns: 17rem minmax(0, 1fr);
   gap: 1.5rem;
-  align-items: start;
+  align-items: center;  /* 썸네일을 글 영역 기준 세로 중앙에 */
   padding: 1.25rem;
   border: 1px solid var(--rule);
   border-radius: var(--radius);
