@@ -1,7 +1,7 @@
 # 홈 왼쪽 프로필 사이드바에 표시되는 정보.
 # HTML 을 건드리지 않고 이 파일만 고치면 된다.
 
-photo: /images/profile1.png
+photo: /images/profile_square.jpg
 title: "CV & AI Engineer"
 affiliation:    # 비우면 표시되지 않는다 (소속은 아래 Currently 카드에 있음)
 location: "South Korea"
