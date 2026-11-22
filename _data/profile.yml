@@ -4,7 +4,7 @@
 photo: /images/profile1.png
 title: "CV & AI Engineer"
 affiliation: "iQ Surgical"
-location: "South Korea"
+location:    # 비우면 위치 줄이 표시되지 않는다
 
 # 연구 분야 태그 (pill)
 focus:
