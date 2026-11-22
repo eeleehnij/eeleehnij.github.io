@@ -15,4 +15,28 @@
   })();
 </script>
 
+<script>
+  /* 스크롤 위치에 따라 현재 섹션의 메뉴를 강조한다 (홈에서만 동작).
+     화면 위에서 35% 지점을 지난 마지막 섹션을 현재 섹션으로 본다. */
+  (function () {
+    var links = document.querySelectorAll(".site-nav__links a[data-spy]");
+    var secs = Array.prototype.map.call(links, function (a) {
+      return document.getElementById(a.getAttribute("data-spy"));
+    }).filter(Boolean);
+    if (!secs.length) return;
+    function update() {
+      var line = window.innerHeight * 0.35, cur = secs[0].id;
+      secs.forEach(function (s) { if (s.getBoundingClientRect().top <= line) cur = s.id; });
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) cur = secs[secs.length - 1].id;
+      links.forEach(function (a) {
+        if (a.getAttribute("data-spy") === cur) a.setAttribute("aria-current", "true");
+        else a.removeAttribute("aria-current");
+      });
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  })();
+</script>
+
 {% include analytics.html %}

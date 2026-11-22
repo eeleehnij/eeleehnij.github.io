@@ -1,0 +1,95 @@
+{% assign p = site.data.profile %}
+<aside class="profile">
+  <img class="profile__photo" src="{{ p.photo | relative_url }}" alt="{{ site.author.name }}" fetchpriority="high">
+
+  <h1 class="profile__name">{{ site.author.name }}</h1>
+  <p class="profile__title">{{ p.title }}</p>
+  {% if p.affiliation %}<p class="profile__affil">{{ p.affiliation }}</p>{% endif %}
+  {% if p.location %}
+    <p class="profile__loc">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12s-8-7-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="2.6"/></svg>
+      {{ p.location }}
+    </p>
+  {% endif %}
+
+  {% if p.focus %}
+    <p class="profile__label">Research Focus</p>
+    <ul class="pills">
+      {% for f in p.focus %}<li class="pill">{{ f }}</li>{% endfor %}
+    </ul>
+  {% endif %}
+
+  <ul class="profile__icons">
+    {% if p.links.email %}
+      <li><a href="mailto:{{ p.links.email }}" aria-label="Email" title="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>
+      </a></li>
+    {% endif %}
+    {% if p.links.scholar %}
+      <li><a href="{{ p.links.scholar }}" aria-label="Google Scholar" title="Google Scholar" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9 12 4 2 9l10 5 10-5z"/><path d="M6 11.2v4.6c0 1.2 2.7 2.7 6 2.7s6-1.5 6-2.7v-4.6"/></svg>
+      </a></li>
+    {% endif %}
+    {% if p.links.github %}
+      <li><a href="{{ p.links.github }}" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+      </a></li>
+    {% endif %}
+    {% if p.links.linkedin %}
+      <li><a href="{{ p.links.linkedin }}" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a></li>
+    {% endif %}
+    {% if p.links.cv %}
+      <li><a href="{{ p.links.cv | relative_url }}" aria-label="CV" title="CV" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+      </a></li>
+    {% endif %}
+  </ul>
+
+  <div class="timeline">
+    {% if p.current %}
+      <div class="timeline__head">
+        <span class="profile__label">Currently</span>
+        <span class="timeline__live">Active</span>
+      </div>
+      {% assign e = p.current %}
+      <div class="tl-item">
+        {% if e.logo %}
+          <img class="tl-item__logo" src="{{ e.logo | relative_url }}" alt="">
+        {% else %}
+          <span class="tl-item__logo tl-item__logo--text">{{ e.org | slice: 0, 2 }}</span>
+        {% endif %}
+        <div>
+          <p class="tl-item__main">{{ e.role }}</p>
+          <p class="tl-item__sub">{{ e.org }}</p>
+          <p class="tl-item__date">{{ e.period }}</p>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if p.education %}
+      <div class="timeline__head timeline__head--sep">
+        <span class="profile__label">Education</span>
+      </div>
+      {% for e in p.education %}
+        <div class="tl-item">
+          {% if e.logo %}
+            <img class="tl-item__logo" src="{{ e.logo | relative_url }}" alt="">
+          {% else %}
+            <span class="tl-item__logo tl-item__logo--text">{{ e.org | slice: 0, 2 }}</span>
+          {% endif %}
+          <div>
+            <p class="tl-item__main">{{ e.degree }}</p>
+            <p class="tl-item__sub">{{ e.org }}</p>
+            <p class="tl-item__date">{{ e.period }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+
+  {% if p.links.cv %}
+    <a class="profile__cv" href="{{ p.links.cv | relative_url }}" target="_blank" rel="noopener">Curriculum Vitae <span aria-hidden="true">↗</span></a>
+  {% endif %}
+</aside>

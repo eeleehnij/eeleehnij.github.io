@@ -1,5 +1,6 @@
 {% comment %}
   kinds : 표시할 type 목록 (쉼표 구분). 생략하면 전체.
+  style : "cards"(기본, 논문형 카드) 또는 "list"(압축 리스트)
   노출 순서는 각 파일의 order 필드로 결정된다 (1 = 맨 위).
 {% endcomment %}
 {% if include.kinds %}
@@ -11,77 +12,94 @@
   {% endfor %}
   {% assign items = items | sort: "order" %}
 {% else %}
-  {% assign kinds = "" | split: "" %}
   {% assign items = site.portfolio | sort: "order" %}
 {% endif %}
-<div class="row-list">
+
+{% if include.style == "list" %}
+{% comment %} ===== 압축 리스트 (Projects) ===== {% endcomment %}
+<div class="plist">
   {% for post in items %}
     {% assign url = post.url | relative_url %}
-    {% comment %} 썸네일과 상세 본문은 없을 수 있다 (예: 준비 중인 논문) {% endcomment %}
-    {% assign has_media = false %}{% if post.thumbnails %}{% assign has_media = true %}{% endif %}
+    {% if post.thumbnails.first %}{% assign thumb = post.thumbnails.first %}{% else %}{% assign thumb = post.thumbnails %}{% endif %}
+    <a class="plist__row" href="{{ url }}">
+      <span class="plist__thumb">
+        {% if thumb %}<img src="{{ thumb | relative_url }}" alt="" loading="lazy">{% endif %}
+      </span>
+      <span class="plist__body">
+        <span class="plist__meta">
+          {% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}
+          {% if post.year %} / {{ post.year }}{% endif %}
+          {% if post.info %} · {{ post.info }}{% endif %}
+        </span>
+        <span class="plist__title">{{ post.title }}</span>
+        {% if post.excerpt %}<span class="plist__desc">{{ post.excerpt | strip_html | strip_newlines | strip }}</span>{% endif %}
+      </span>
+      <span class="plist__arrow" aria-hidden="true">↗</span>
+    </a>
+  {% endfor %}
+</div>
+
+{% else %}
+{% comment %} ===== 논문형 카드 (Research) ===== {% endcomment %}
+<div class="pubs">
+  {% for post in items %}
+    {% assign url = post.url | relative_url %}
     {% assign body_len = post.content | strip | size %}
     {% assign has_page = false %}{% if body_len > 0 %}{% assign has_page = true %}{% endif %}
-    <article class="item">
 
+    <article class="pub">
       {% if post.thumbnails.size > 1 and post.thumbnails.first %}
-        <a class="item__media" href="{{ url }}">
-          <span class="item__media__duo">
-            {% for img in post.thumbnails limit:2 %}
-              <img src="{{ img | relative_url }}" alt="" loading="lazy">
-            {% endfor %}
-          </span>
+        <a class="pub__thumb pub__thumb--duo" href="{{ url }}" tabindex="-1" aria-hidden="true">
+          {% for img in post.thumbnails limit:2 %}<img src="{{ img | relative_url }}" alt="" loading="lazy">{% endfor %}
         </a>
-      {% elsif has_media %}
+      {% elsif post.thumbnails %}
         {% if post.thumbnails.first %}{% assign thumb = post.thumbnails.first %}{% else %}{% assign thumb = post.thumbnails %}{% endif %}
-        <a class="item__media" href="{{ url }}">
-          <img src="{{ thumb | relative_url }}" alt="" loading="lazy">
-        </a>
+        {% if has_page %}
+          <a class="pub__thumb" href="{{ url }}" tabindex="-1" aria-hidden="true"><img src="{{ thumb | relative_url }}" alt="" loading="lazy"></a>
+        {% else %}
+          <div class="pub__thumb"><img src="{{ thumb | relative_url }}" alt="" loading="lazy"></div>
+        {% endif %}
       {% else %}
-        {% comment %} 썸네일이 없어도 자리를 지켜 행 레이아웃을 맞춘다 {% endcomment %}
-        <div class="item__media item__media--empty" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"
-               stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="4.5" width="18" height="15" rx="1.8"/>
-            <circle cx="8.6" cy="9.8" r="1.5"/>
-            <path d="M3 16.2l4.6-4.1a1.6 1.6 0 0 1 2.1 0l4.3 3.9"/>
-            <path d="M13.4 13.6l2.3-2a1.6 1.6 0 0 1 2.1 0L21 14.3"/>
-          </svg>
+        <div class="pub__thumb pub__thumb--empty" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="1.8"/><circle cx="8.6" cy="9.8" r="1.5"/><path d="M3 16.2l4.6-4.1a1.6 1.6 0 0 1 2.1 0l4.3 3.9"/><path d="M13.4 13.6l2.3-2a1.6 1.6 0 0 1 2.1 0L21 14.3"/></svg>
         </div>
       {% endif %}
 
-      <div>
-        <h3 class="item__title">{% if has_page %}<a href="{{ url }}">{{ post.title }}</a>{% else %}{{ post.title }}{% endif %}</h3>
+      <div class="pub__body">
+        <div class="pub__top">
+          <span class="pub__venue">
+            {% if post.venue %}
+              {{ post.venue }}{% if post.venue_year %} · {{ post.venue_year }}{% endif %}{% if post.venue_note %} · {{ post.venue_note }}{% endif %}
+            {% elsif post.info %}
+              {{ post.info }}{% if post.year %} · {{ post.year }}{% endif %}
+            {% elsif post.year %}
+              {{ post.year }}
+            {% endif %}
+            {% if post.badge %}<span class="badge">{{ post.badge }}</span>{% endif %}
+          </span>
+          <span class="pub__idx">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+        </div>
+
+        <h3 class="pub__title">{% if has_page %}<a href="{{ url }}">{{ post.title }}</a>{% else %}{{ post.title }}{% endif %}</h3>
 
         {% if post.authors %}
-          <p class="item__authors">{{ post.authors | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
-        {% endif %}
-
-        {% if post.venue %}
-          <p class="item__venue">
-            <em>{{ post.venue }}</em>{% if post.venue_year %}, {{ post.venue_year }}{% endif %}{% if post.venue_note %} &nbsp;·&nbsp; {{ post.venue_note }}{% endif %}{% if post.badge %}<span class="badge badge--oral">{{ post.badge }}</span>{% endif %}
-          </p>
-        {% endif %}
-
-        {% if has_page or post.paper or post.link or post.code %}
-        <div class="item__links">
-          {% if has_page %}<a href="{{ url }}">Project page</a>{% endif %}
-          {% if post.paper %}<a href="{{ post.paper | relative_url }}">{{ post.paper_label | default: "PDF" }}</a>{% endif %}
-          {% if post.link %}<a href="{{ post.link }}">{{ post.link_label | default: "Link" }}</a>{% endif %}
-          {% if post.code %}<a href="{{ post.code }}">Code</a>{% endif %}
-        </div>
+          <p class="pub__authors">{{ post.authors | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
         {% endif %}
 
         {% if post.excerpt %}
-          <p class="item__desc">{{ post.excerpt | strip_html | strip_newlines | strip }}</p>
+          <p class="pub__desc">{{ post.excerpt | strip_html | strip_newlines | strip }}</p>
         {% endif %}
 
-        <div class="item__meta">
-          {% if post.type and kinds.size != 1 %}<span class="tag tag--{{ post.type | strip | downcase }}">{{ post.type | strip }}</span>{% endif %}
-          {% unless post.venue %}{% if post.info %}<em>{{ post.info }}</em>{% endif %}{% endunless %}
-          {% unless post.venue_year %}{% if post.year %}<span>{{ post.year }}</span>{% endif %}{% endunless %}
-        </div>
+        {% if has_page or post.paper or post.link or post.code %}
+          <div class="pub__links">
+            {% if post.paper %}<a href="{{ post.paper | relative_url }}" target="_blank" rel="noopener">{{ post.paper_label | default: "Paper" }} <span aria-hidden="true">↗</span></a>{% endif %}
+            {% if post.link %}<a href="{{ post.link }}" target="_blank" rel="noopener">{{ post.link_label | default: "Link" }} <span aria-hidden="true">↗</span></a>{% endif %}
+            {% if post.code %}<a href="{{ post.code }}" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>{% endif %}
+            {% if has_page %}<a href="{{ url }}">Project <span aria-hidden="true">→</span></a>{% endif %}
+          </div>
+        {% endif %}
       </div>
-
     </article>
   {% endfor %}
 </div>
+{% endif %}

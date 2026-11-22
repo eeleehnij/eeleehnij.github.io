@@ -2,7 +2,11 @@
 layout: default
 ---
 <div class="wrap wrap--wide">
-  <a class="backlink" href="{{ '/projects/' | relative_url }}">&larr; All projects</a>
+  {% if page.type == "research" %}
+    <a class="backlink" href="{{ '/#research' | relative_url }}">&larr; Research</a>
+  {% else %}
+    <a class="backlink" href="{{ '/#projects' | relative_url }}">&larr; Projects</a>
+  {% endif %}
 
   <header class="page-head">
     <h1 class="page-head__title">{{ page.title }}</h1>

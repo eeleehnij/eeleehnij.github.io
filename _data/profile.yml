@@ -1,0 +1,43 @@
+# 홈 왼쪽 프로필 사이드바에 표시되는 정보.
+# HTML 을 건드리지 않고 이 파일만 고치면 된다.
+
+photo: /images/profile1.png
+title: "CV & AI Engineer"
+affiliation: "iQ Surgical"
+location: "South Korea"
+
+# 연구 분야 태그 (pill)
+focus:
+  - Surgical AI
+  - Vision-Language Models
+  - Biomedical Image Analysis
+
+# 아이콘 링크. 값이 비어 있으면 아이콘이 표시되지 않는다.
+links:
+  email: "jinny6876@gmail.com"
+  scholar: "https://scholar.google.com/citations?user=nVyn5OsAAAAJ"
+  cv: /files/JinheeLee_CV.pdf
+  github:      # 예: "https://github.com/아이디"
+  linkedin:    # 예: "https://www.linkedin.com/in/아이디"
+
+# "CURRENTLY" 카드
+current:
+  org: "iQ Surgical"
+  role: "CV & AI Engineer"
+  period: "2026 – Present"
+  logo:        # 로고 이미지 경로. 비우면 이니셜 타일로 표시
+
+# "EDUCATION" 카드 (위에서부터 표시)
+education:
+  - org: "Ohio State University"
+    degree: "M.S. in Computer Science and Engineering"
+    period: "2019 – 2021"
+    logo: /images/education/Ohio_State_University_Logo.png
+  - org: "UST – Korea Aerospace Research Institute"
+    degree: "M.Eng. in Aerospace System Engineering"
+    period: "2016 – 2018"
+    logo: /images/education/ustLogo.png
+  - org: "Inha University"
+    degree: "B.S. in Aerospace Engineering"
+    period: "2010 – 2016"
+    logo: /images/education/inhaLogo.jpg
